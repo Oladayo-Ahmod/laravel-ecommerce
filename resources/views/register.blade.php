@@ -4,7 +4,7 @@
         <div class="col-md-4 bg-white shadow p-2 m-2 mt-5" style="border-radius:10px;">
             <div class="">
                 <h4 class="text-center text-secondary">Sign up</h4>
-                <form class="form-group" enctype="multipart/form-data" method="POST" action="">
+                <form class="form-group" enctype="multipart/form-data" method="POST" action="/register">
                     @csrf
                     <label for="name">Name</label>
                     <input type="text" name="name" required placeholder="" required class="form-control"><br>
