@@ -23,3 +23,15 @@
     display: block !important;
     text-align: center;
  }
+ footer{
+    display: block;
+    text-align: center;
+    padding: 10px 0 2px 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    bottom: 0;
+}
+footer p{
+    font-size: 14px;
+}
