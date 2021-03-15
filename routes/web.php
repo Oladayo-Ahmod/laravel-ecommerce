@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::view('/register','register');
+Route::view('/login','login');
 Route::post('/register',[UserController::class,'register']);
+Route::post('/login',[UserController::class,'login']);

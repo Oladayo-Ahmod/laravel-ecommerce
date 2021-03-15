@@ -17,4 +17,16 @@ class UserController extends Controller
         $user->save();
         return redirect('login');
     }
+    // login functiionality
+    function login(){
+        $data = User::where('email','=',$req->email)->first();
+         // check if the passwords match
+         if (Hash::check($req->password,$data->password)) {
+            $req->session()->put('user',$data);
+            return redirect('/homes');
+        }
+        else{
+            return "incorrect username  or password";
+        }
+    }
 }
