@@ -1,0 +1,25 @@
+.carousel-caption{
+ background-color: rgba(113,127,142,0.25) !important;
+ }
+ .trending, .cartlist{
+     margin-top: 100px !important;
+ }
+ .cartlist img{
+    max-height:200px !important;
+ }
+ .trending a, .cartlist a{
+     text-decoration: none;
+ }
+ .details img{
+    width: 100% !important;
+    height: 100% !important;
+    background-repeat: inherit;
+    background-size: cover;
+ }
+ .details{
+      /* display:flex !important;
+    justify-content:center;
+    align-items: center; */
+    display: block !important;
+    text-align: center;
+ }
