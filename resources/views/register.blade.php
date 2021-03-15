@@ -14,7 +14,7 @@
                     <input type="password" name="password" required class="form-control"><br>
                     <div style="display:flex;">
                         <button type="submit" class="btn btn-primary mr-auto" name="signup">Sign up</button>
-                        <a class="btn btn-danger" href="index.php">Login</a>
+                        <a class="btn btn-danger" href="/login">Login</a>
                     </div>
                 </form>
             </div>
