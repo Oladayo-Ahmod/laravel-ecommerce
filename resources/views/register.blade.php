@@ -5,6 +5,7 @@
             <div class="">
                 <h4 class="text-center text-secondary">Sign up</h4>
                 <form class="form-group" enctype="multipart/form-data" method="POST" action="">
+                    @csrf
                     <label for="name">Name</label>
                     <input type="text" name="name" required placeholder="" required class="form-control"><br>
                     <label for="email">Email</label>
