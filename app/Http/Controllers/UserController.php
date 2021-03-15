@@ -18,7 +18,7 @@ class UserController extends Controller
         return redirect('login');
     }
     // login functiionality
-    function login(){
+    function login(Request $req){
         $data = User::where('email','=',$req->email)->first();
          // check if the passwords match
          if (Hash::check($req->password,$data->password)) {
