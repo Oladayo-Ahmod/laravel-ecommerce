@@ -15,12 +15,6 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name'=> 'Monitor',
-            'price'=> 35000,
-            'category'=> 'desktop computer',
-            'description'=> 'a desktop computer',
-            'gallery' => 'monitor.jpg'
-        ],
         [
             'name'=> 'Home theatre',
             'price'=> 2000,
@@ -41,6 +35,7 @@ class ProductsSeeder extends Seeder
             'category'=> 'graphics',
             'description'=> 'a graphics design',
             'gallery' => 'graphics.jpeg'
+        ]
         ]);
     }
 }
