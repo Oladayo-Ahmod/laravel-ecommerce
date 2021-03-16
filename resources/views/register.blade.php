@@ -1,4 +1,5 @@
-@include('master')
+@extends('master')
+@section('content')
 <div class="container mt-3">
     <div class="row justify-content-center align-items-center">
         <div class="col-md-4 bg-white shadow p-2 m-2 mt-5" style="border-radius:10px;">
@@ -21,3 +22,4 @@
         </div>
     </div>
 </div>
+@endsection

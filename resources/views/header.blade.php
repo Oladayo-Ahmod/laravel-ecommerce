@@ -31,7 +31,7 @@
                     <a class="dropdown-item"  href="/logout">logout</a>
                 </div>
             </li>
-            <li class="nav-link redirect-links"><a href="/logins">login</a></li>
+            <li class="nav-link redirect-links"><a href="/login">login</a></li>
             <li class="nav-link redirect-links"><a href="/register">register</a></li>
             
         </ul>
