@@ -12,7 +12,7 @@
          @foreach ($products as $product)
             
              <div class="carousel-item {{$product['id'] == 1 ? 'active': '' }}">
-                 <a href="detail/{{$product['id']}}">
+                 <a href="product/{{$product['id']}}">
                  <img src="{{ url('assets/images')}}/{{$product['gallery']}}" height="320px" class="img-top" alt="image slide">
                  <div class="carousel-caption d-none d-md-block">
                      <h3 class="text-secondary">{{$product['name']}}</h3>
@@ -38,7 +38,7 @@
          <div class="row">
              @foreach($products as $product)
              <div class="col-md-3 my-4">
-                 <a href="detail/{{$product['id']}}">
+                 <a href="product/{{$product['id']}}">
                      <div class="card shadow" style="background-color: rgba(113,127,142,0.25); border-color:rgb(230, 230, 248);">
                          <img class="card-img-top" height="250px" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product">
                          <div class="card-body">
