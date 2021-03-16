@@ -17,24 +17,28 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </ul>
-        <button class="btn">
-                <a href="/cartlist" style="text-decoration:none;">
-                        <span class="text-secondary" >Cart</span>
-                        <span class="badge badge-pill badge-warning"></span>
-                </a>
-       </button>
+        
         <ul class="nav nav-tabs nav-primary">
-            <li class="nav-item dropdown bg-info">
+            @if(Session::has('user'))
+            <li class="nav-item dropdown bg-light" style="border-radius: 10px;border:none;outline:none;">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-                 role="button" aria-haspopup="true" aria-expanded="false"></a>
+                 role="button" aria-haspopup="true" aria-expanded="false">{{Session::get('user')['name']}}</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item"  href="/logout">logout</a>
+                    <a class="dropdown-item"  href="/profile">profile</a>
                 </div>
             </li>
+            @else
             <li class="nav-link redirect-links"><a href="/login">login</a></li>
             <li class="nav-link redirect-links"><a href="/register">register</a></li>
-            
+            @endif
         </ul>
+        <button class="btn ">
+            <a href="/cartlist" style="text-decoration:none;">
+                    <span class="text-light">Cart</span>
+                    <span class="badge badge-pill badge-warning">0</span>
+            </a>
+   </button>
     </div>
    
 </nav>
