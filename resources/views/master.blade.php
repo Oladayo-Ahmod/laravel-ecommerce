@@ -10,9 +10,9 @@
     <title>Ecommerce | Laravel</title>
 </head>
 <body>
-    {{-- {{View::make('header')}}
+    {{View::make('header')}}
     @yield('content')
-    {{View::make('footer')}} --}}
+    {{View::make('footer')}}
 
     <script src="{{ url('assets/js/jquery.min.js')}}"></script>
     <script src="{{ url('assets/js/bootstrap.min.js')}}"></script>

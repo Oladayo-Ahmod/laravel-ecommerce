@@ -35,3 +35,10 @@
 footer p{
     font-size: 14px;
 }
+a{
+    text-decoration: none !important;
+    /* color:white !important; */
+}
+.redirect-links > a{
+    color:white !important;
+}

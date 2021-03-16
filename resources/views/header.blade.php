@@ -23,16 +23,16 @@
                         <span class="badge badge-pill badge-warning"></span>
                 </a>
        </button>
-        <ul class="nav nav-tabs">
-            <li class="nav-item dropdown">
+        <ul class="nav nav-tabs nav-primary">
+            <li class="nav-item dropdown bg-info">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
                  role="button" aria-haspopup="true" aria-expanded="false"></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/logout">logout</a>
+                    <a class="dropdown-item"  href="/logout">logout</a>
                 </div>
             </li>
-            <li class="nav-link"><a href="/logins">login</a></li>
-            <li class="nav-link"><a href="/register">register</a></li>
+            <li class="nav-link redirect-links"><a href="/logins">login</a></li>
+            <li class="nav-link redirect-links"><a href="/register">register</a></li>
             
         </ul>
     </div>
