@@ -10,12 +10,19 @@ class UserController extends Controller
 {
     // register functionality
     function register(Request $req){
-        $user = new User;
-        $user->name = $req->name;
-        $user->email = $req->email;
-        $user->password = Hash::make($req->password);
-        $user->save();
-        return redirect('login');
+        if(User::where('email','=',$req->email)){
+            echo '<div class="alert alert-primary" role="alert">
+                <strong>Email already chose</strong>
+            </div>';
+        }
+        else{
+            $user = new User;
+            $user->name = $req->name;
+            $user->email = $req->email;
+            $user->password = Hash::make($req->password);
+            $user->save();
+            return redirect('login');
+        }
     }
     // login functionality
     function login(Request $req){
