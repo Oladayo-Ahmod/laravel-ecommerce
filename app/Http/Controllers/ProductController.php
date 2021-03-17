@@ -28,5 +28,19 @@ class ProductController extends Controller
             return redirect('/');
 
         }
+        else{
+            return redirect('/login');
+        }
+    }
+
+    // count added items in the cart
+    static function CartNum(){
+        if (session()->has('user')) {
+            $user_id = Session::get('user')['id'];
+            return Cart::where('user_id',$user_id)->count();
+        }   
+        else{
+            return redirect('/login');
+        }
     }
 }

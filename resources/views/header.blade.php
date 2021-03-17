@@ -1,3 +1,10 @@
+<?php
+    use App\Http\Controllers\ProductController;
+    $total_items = 0;
+    if (Session::has('user')) {
+        $total_items = ProductController::CartNum();   
+    }
+ ?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <a class="navbar-brand" href="#">E-commerce</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -36,7 +43,7 @@
         <button class="btn ">
             <a href="/cartlist" style="text-decoration:none;">
                     <span class="text-light">Cart</span>
-                    <span class="badge badge-pill badge-warning">0</span>
+                    <span class="badge badge-pill badge-warning">{{$total_items}}</span>
             </a>
    </button>
     </div>
