@@ -17,7 +17,7 @@
                     <h4 class="text-secondary">Product Category : {{$product['category']}}</h4>
                     <p class="card-text">Product Description : {{$product['description']}}</p>
                     <br><br><br>
-                    <form action="/add_to_cart" method="POST">
+                    <form action="/addtocart" method="POST">
                         @csrf
                         <input type="hidden" name="cart" value="{{$product['id']}}">
                         <button class=" my-3 btn btn-danger">Add to cart</button><br>
