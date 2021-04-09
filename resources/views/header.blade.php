@@ -45,7 +45,7 @@
                     <span class="text-light">Cart</span>
                     <span class="badge badge-pill badge-warning">{{$total_items}}</span>
             </a>
-   </button>
+        </button>
     </div>
    
 </nav>

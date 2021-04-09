@@ -19,6 +19,7 @@ use App\Http\Controllers\ProductController;
 //     return view('welcome');
 // });
 Route::get('/',[ProductController::class,'index']);
+Route::get('/cartlist',[ProductController::class,'cartlist']);
 Route::post('/addtocart',[ProductController::class,'cart']);
 Route::get('/product/{id}',[ProductController::class,'product']);
 Route::view('/register','register');
