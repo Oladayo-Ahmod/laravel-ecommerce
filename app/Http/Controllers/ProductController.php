@@ -62,4 +62,22 @@ class ProductController extends Controller
             return redirect('/');
         }
     }
+    
+    // remove product from the cart
+    function remove($id){
+        if (Session::has('user')) {
+            Cart::destroy($id);
+            return redirect('/cartlist');
+        }
+        else{
+            return redirect('/');
+        }
+    }
+
+    // search product from the database
+    function search_products(Request $request){
+        $search = $request->input('search');
+        $product = Product::where('name','like','%'.$search.'%')->get();
+        return  view('/search',['products'=> $product]);
+    }
 }
