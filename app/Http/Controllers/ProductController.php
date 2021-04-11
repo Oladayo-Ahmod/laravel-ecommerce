@@ -80,4 +80,22 @@ class ProductController extends Controller
         $product = Product::where('name','like','%'.$search.'%')->get();
         return  view('/search',['products'=> $product]);
     }
+
+    // order now
+    function checkout(){
+        if (session()->has('user')) {
+            $user_id = Session::get('user')['id'];
+            $total = DB::table('carts')
+            ->join('products','carts.product_id','=','products.id')
+            ->where('carts.user_id',$user_id)
+            ->select('products.*','carts.id as cart_id')
+            ->sum('products.price');
+            return view('checkout',['total'=>$total]);
+        }
+        else{
+            return redirect('/login');
+        }
+    }
+
+
 }
