@@ -15,9 +15,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('/');
+});
 Route::get('/',[ProductController::class,'index']);
 Route::get('/search',[ProductController::class,'search_products']);
 Route::get('/removecart/{id}',[ProductController::class,'remove']);
