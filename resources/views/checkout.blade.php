@@ -22,7 +22,7 @@
                         </tr>
                     </tbody>
             </table>
-            <form action="/orderplace" method="POST">
+            <form action="/ordernow" method="POST">
                 @csrf
                     <div class="form-group">
                         <label for="address">Your Address</label>

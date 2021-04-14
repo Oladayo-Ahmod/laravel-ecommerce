@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Session;
 use DB;
 class ProductController extends Controller
@@ -76,7 +77,7 @@ class ProductController extends Controller
 
     // search product from the database
     function search_products(Request $request){
-        $search = $request->input('search');
+        $search = $request->search;
         $product = Product::where('name','like','%'.$search.'%')->get();
         return  view('/search',['products'=> $product]);
     }
@@ -97,5 +98,27 @@ class ProductController extends Controller
         }
     }
 
+    // order placement
+    function order_now(Request $req){
+        if ($req->session()->has('user')) {
+            $user_id = Session::get('user')['id'];
+            $all_cart = Cart::where('user_id',$user_id)->get();
+            foreach ($all_cart as $cart) {
+                $order = new Order;
+                $order->user_id = $cart['user_id'];
+                $order->product_id = $cart['product_id'];
+                $order->status = "pending";
+                $order->payment_method = $req->payment;
+                $order->payment_status = "pending";
+                $order->address = $req->address;
+                $order->Save();
+                $all_cart = Cart::where('user_id',$user_id)->delete();
+            }
+            return redirect('/');
+        }
+        else{
+            return redirect('/login');
+        }
+    }
 
 }

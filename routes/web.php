@@ -21,6 +21,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/',[ProductController::class,'index']);
 Route::get('/search',[ProductController::class,'search_products']);
 Route::get('/removecart/{id}',[ProductController::class,'remove']);
+Route::post('/ordernow',[ProductController::class,'order_now']);
 Route::get('/cartlist',[ProductController::class,'cartlist']);
 Route::get('/checkout',[ProductController::class,'checkout']);
 Route::post('/addtocart',[ProductController::class,'cart']);
