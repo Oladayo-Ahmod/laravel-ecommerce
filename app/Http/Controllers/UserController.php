@@ -10,22 +10,27 @@ class UserController extends Controller
 {
     // register functionality
     function register(Request $req){
-        if(User::where('email','=',$req->email)){
-            echo '<div class="alert alert-primary" role="alert">
-                <strong>Email already chose</strong>
-            </div>';
-        }
-        else{
-            $user = new User;
-            $user->name = $req->name;
-            $user->email = $req->email;
-            $user->password = Hash::make($req->password);
-            $user->save();
-            return redirect('login');
-        }
+        // validate registration
+        $validate = $req->validate([
+            'name'=> 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:5',
+        ]);
+        $user = new User;
+        $user->name = $req->name;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->password);
+        $user->save();
+        return back()->with('success','Signed up successfully');
+        // return redirect('login');
     }
     // login functionality
     function login(Request $req){
+        // validate login
+        $validate = $req->validate([
+            'email'=> 'required|max:150',
+            'password' => 'required',
+        ]);
         $data = User::where('email','=',$req->email)->first();
          // check if the passwords match
          if (Hash::check($req->password,$data->password)) {
