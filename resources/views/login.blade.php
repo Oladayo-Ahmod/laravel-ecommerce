@@ -5,6 +5,14 @@
         <div class="col-md-4 bg-white shadow p-2 m-2 mt-5" style="border-radius:10px;">
             <div class="">
                 <h4 class=" my-2 text-center bg-primary text-white "style="border-radius:5px;">Login</h4>
+                @if (Session::has('failure'))
+                    <div class="alert alert-danger text-center" role="alert">
+                        {{Session::get('failure')}}
+                        @php
+                            Session::forget('failure');
+                        @endphp
+                    </div>
+                @endif
                 @if ($errors->any())
                    <div class=" py-0 alert alert-danger" role="alert">
                        <ul>

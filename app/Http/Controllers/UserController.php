@@ -38,7 +38,7 @@ class UserController extends Controller
             return redirect('/');
         }
         else{
-            return "incorrect username  or password";
+            return back()->with('failure','incorrect username or password');
         }
     }
 }
