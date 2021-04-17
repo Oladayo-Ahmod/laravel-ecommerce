@@ -15,7 +15,10 @@ class UserController extends Controller
             'name'=> 'required',
             'email' => 'required|email',
             'password' => 'required|min:5',
+            // 'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048' image upload functionality
         ]);
+        // $imageName = time() . '.' . $req->image->extension(); image upload functionality
+        // $req->image->move(public_path('assets/images'), $imageName); image upload functionality
         $user = new User;
         $user->name = $req->name;
         $user->email = $req->email;
