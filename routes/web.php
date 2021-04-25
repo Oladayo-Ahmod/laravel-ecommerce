@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::get('/logout', function () {
     Session::forget('user');
     return redirect('/');
 });
+Route::post('/pay', [PaymentController::class,'redirectToGateway'])->name('pay');
+Route::get('/payment/callback', [PaymentController::class,'handleGatewayCallback']);
 Route::get('/',[ProductController::class,'index']);
 Route::get('/search',[ProductController::class,'search_products']);
 Route::get('/removecart/{id}',[ProductController::class,'remove']);

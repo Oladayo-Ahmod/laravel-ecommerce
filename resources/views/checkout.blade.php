@@ -22,13 +22,22 @@
                         </tr>
                     </tbody>
             </table>
-            <form action="/ordernow" method="POST">
+            <form action="{{ route('pay') }}" role="form" accept-charset="UTF-8" method="POST">
                 @csrf
                     <div class="form-group">
                         <label for="address">Your Address</label>
                         <textarea class="form-control" required name="address" id="" rows="3"></textarea>
+                        <input type="hidden" name="email" value="otemuyiwa@gmail.com"> {{-- required --}}
+                        <input type="hidden" name="orderID" value="345">
+                        <input type="hidden" name="amount" value="{{$total}}"> {{-- required in kobo --}}
+                        <input type="hidden" name="quantity" value="3">
+                        <input type="hidden" name="currency" value="NGN">
+                        <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                        {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="payment"><b> Payment Method </b></label><br>
                         <div class="form-check">
                           <label class="form-check-label">
@@ -37,7 +46,7 @@
                                 <input type="checkbox" value="cash"  name="payment" id=""> <span>Payment on delivery</span>
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                     <button type="submit" class="btn btn-primary mt-3 btn-sm">Order Now</button>
             </form>
         </div>
