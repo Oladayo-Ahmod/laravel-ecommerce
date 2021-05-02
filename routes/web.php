@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ Route::get('/logout', function () {
     Session::forget('user');
     return redirect('/');
 });
+// paystack payment gateway routes
 Route::post('/pay', [PaymentController::class,'redirectToGateway'])->name('pay');
 Route::get('/payment/callback', [PaymentController::class,'handleGatewayCallback']);
+// products routes
 Route::get('/',[ProductController::class,'index']);
 Route::get('/search',[ProductController::class,'search_products']);
 Route::get('/removecart/{id}',[ProductController::class,'remove']);
@@ -30,7 +33,11 @@ Route::get('/cartlist',[ProductController::class,'cartlist']);
 Route::get('/checkout',[ProductController::class,'checkout']);
 Route::post('/addtocart',[ProductController::class,'cart']);
 Route::get('/product/{id}',[ProductController::class,'product']);
+// login and registration routes
 Route::view('/register','register');
 Route::view('login','login');
 Route::post('/register',[UserController::class,'register']);
 Route::post('/login',[UserController::class,'login']);
+// admin routes
+Route::view('/admin','admin');
+Route::post('/admin-login',[AdminController::class,'login']);
