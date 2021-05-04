@@ -16,7 +16,7 @@ class AdminController extends Controller
         if($admin = Admin::where('email','=',$req->email)->first()){
             if(Hash::check($req->password,$admin->password)){
                 Session::put('admin',$admin);
-                return redirect('/dashboard');
+                return view('dashboard');
             }
             else{
                 return back()->with('failure','incorrect email or password');

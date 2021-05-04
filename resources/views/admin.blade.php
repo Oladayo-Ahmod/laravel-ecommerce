@@ -22,7 +22,7 @@
                        </ul>
                    </div> 
                 @endif
-                <form class="form-group" enctype="multipart/form-data" method="POST" action="/admin-login">
+                <form class="form-group" enctype="multipart/form-data" method="POST" action="/dashboard">
                     @csrf
                     <label for="email">Email</label>
                     <input type="email" name="email" required  class="form-control" id=""><br>

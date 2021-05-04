@@ -40,4 +40,4 @@ Route::post('/register',[UserController::class,'register']);
 Route::post('/login',[UserController::class,'login']);
 // admin routes
 Route::view('/admin','admin');
-Route::post('/admin-login',[AdminController::class,'login']);
+Route::post('/dashboard',[AdminController::class,'login']);

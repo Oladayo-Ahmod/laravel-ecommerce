@@ -34,7 +34,7 @@
  </div>
  
      <div class="container-fluid mt-5 trending">
-         <h4 class="text-center text-secondary my-4 bg-light">Trending Product</h4>
+         <h4 class="text-center text-secondary my-4">Trending Product</h4>
          <div class="row">
              @foreach($products as $product)
              <div class="col-md-3 my-4">
