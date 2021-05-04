@@ -1,3 +1,10 @@
+body{
+    background-image: url(../images/abstract.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+ /* products styles */
 .carousel-caption{
  background-color: rgba(113,127,142,0.25) !important;
  }
@@ -23,10 +30,17 @@
     display: block !important;
     text-align: center;
  }
+ /* login and registration styles */
+ .login-header{
+    border-radius:5px;
+    font-weight:bolder;
+ }
+ /* footer styles */
  footer{
     display: block;
     text-align: center;
     padding: 10px 0 2px 0;
+    position : relative;
     width: 100%;
     height: auto;
     margin: 0;
