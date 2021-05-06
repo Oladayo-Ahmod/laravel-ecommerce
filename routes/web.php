@@ -40,4 +40,5 @@ Route::post('/register',[UserController::class,'register']);
 Route::post('/login',[UserController::class,'login']);
 // admin routes
 Route::view('/admin','admin');
-Route::post('/dashboard',[AdminController::class,'login']);
+Route::post('/admin',[AdminController::class,'login']);
+Route::get('/dashboard',[AdminController::class,'dashboard']);
