@@ -16,11 +16,16 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// logout routes
 Route::get('/logout', function () {
     Session::forget('user');
     return redirect('/');
-});
+}); // user logout route
+Route::get('/admin-logout', function () {
+    Session::forget('admin');
+    return redirect('/admin');
+}); // admin logout route
+
 // paystack payment gateway routes
 Route::post('/pay', [PaymentController::class,'redirectToGateway'])->name('pay');
 Route::get('/payment/callback', [PaymentController::class,'handleGatewayCallback']);
@@ -39,6 +44,6 @@ Route::view('login','login');
 Route::post('/register',[UserController::class,'register']);
 Route::post('/login',[UserController::class,'login']);
 // admin routes
-Route::view('/admin','admin');
+Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin',[AdminController::class,'login']);
 Route::get('/dashboard',[AdminController::class,'dashboard']);
