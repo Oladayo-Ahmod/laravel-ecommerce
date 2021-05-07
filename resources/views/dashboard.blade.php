@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ url('assets/vendor/charts/c3charts/c3.css')}}">
     <link rel="stylesheet" href="{{ url('assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">
     <title> Ecommerce Admin Dashboard </title>
+   
 </head>
 
 <body>
@@ -44,7 +45,10 @@
                         </li>
                     
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="image" class="user-avatar-md rounded-circle"></a>
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
+                             aria-expanded="false">
+                             <img src="{{url('assets/images/code.jpeg')}}" alt="profile image" class="user-avatar-md rounded-circle">
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">{{$username}} </h5>
@@ -78,8 +82,26 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
+                                    <i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-fw fa-user-circle"></i>Change Profile Picture <span class="badge badge-success">6</span>
+                                </a>
+                                <div class="profile-dropdown dropdown-menu mt-0 ">
+                                    
+                                    <div class="container">
+                                        <form action="/profile-picture" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="file" name="image" class="form-control"><br>
+                                            <input type="submit" class="btn btn-primary btn-sm" value="Update">
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                             
                         </ul>
                     </div>
                 </nav>

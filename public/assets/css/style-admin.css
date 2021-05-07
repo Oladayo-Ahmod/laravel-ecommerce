@@ -237,7 +237,24 @@ ul li {}
     font-weight: 300;
     color: #3d3f5d;
 }
+/* dashboard styles */
+.profile-dropdown{
 
+    width:90% !important;
+    margin-top:-10px !important;
+    margin-left:10px;
+    background-color: #242849 !important;
+    border : 3px solid #242849;
+}
+@media screen and (max-width:759px){
+    .profile-dropdown{
+
+        width:90% !important;
+        margin-top:-10px !important;
+    }
+    
+}
+/* .................... */
 
 /*--------------------
  Form

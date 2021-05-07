@@ -60,4 +60,20 @@ class AdminController extends Controller
             return redirect('/admin');
         }
     }
+
+    // profile picture functionality
+    function profile_picture(Request $req){
+        $validate = $req->validate([
+            'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
+        ]);
+        $imageName = time() . '.' . $req->image->extension();
+        // insert the image path into the database
+        $insert = new Admin;
+        $insert->image = $imageName;
+        $insert->save();
+        // store the image in the public folder
+        if($req->image->move(public_path('assets/images'))){
+            return back()->with('success','Image uploaded successfully');
+        }
+    }
 }
