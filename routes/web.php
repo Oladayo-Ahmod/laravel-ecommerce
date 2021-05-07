@@ -46,5 +46,5 @@ Route::post('/login',[UserController::class,'login']);
 // admin routes
 Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin',[AdminController::class,'login']);
-Route::get('/dashboard',[AdminController::class,'dashboard']);
+Route::get('/dashboard',[AdminController::class,'admin_details']);
 Route::post('/profile-picture',[AdminController::class,'profile_picture']);

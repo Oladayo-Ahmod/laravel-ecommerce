@@ -49,30 +49,35 @@ class AdminController extends Controller
        
     }
 
-    // dashboard functionality
-    function dashboard(){
+    // fetch admin details functionality
+    function admin_details(){
         // check if session exist
         if (Session::has('admin')) {
-            $admin_name = Session::get('admin')['name'];
-            return view('dashboard',['username'=>$admin_name]);
+            $id = Session::get('admin')['id'];
+            $admin_details = Admin::find($id);
+            return view('dashboard',['admin'=>$admin_details]);
         }
         else{
             return redirect('/admin');
         }
     }
 
+    // pr
+
     // profile picture functionality
     function profile_picture(Request $req){
+        // validate the input
         $validate = $req->validate([
             'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
         ]);
         $imageName = time() . '.' . $req->image->extension();
         // insert the image path into the database
-        $insert = new Admin;
-        $insert->image = $imageName;
-        $insert->save();
+        $id = Session::get('admin')['id']; // admin id
+        $admin = Admin::find($id);
+        $admin->image = $imageName;
+        $admin->save();
         // store the image in the public folder
-        if($req->image->move(public_path('assets/images'))){
+        if($req->image->move(public_path('assets/images'),$imageName)){
             return back()->with('success','Image uploaded successfully');
         }
     }

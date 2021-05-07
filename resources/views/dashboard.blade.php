@@ -47,11 +47,11 @@
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
                              aria-expanded="false">
-                             <img src="{{url('assets/images/code.jpeg')}}" alt="profile image" class="user-avatar-md rounded-circle">
+                             <img src="{{url('assets/images/'.$admin['image'])}}" alt="profile image" class="user-avatar-md rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">{{$username}} </h5>
+                                    <h5 class="mb-0 text-white nav-user-name">{{$admin['name']}} </h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
@@ -123,6 +123,14 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
                                 <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
+                                @if (Session::has('success'))
+                                   <div class="alert alert-success">
+                                        {{Session::get('success')}}
+                                    </div>
+                                @endif
+                                @php
+                                 Session::forget('success')   
+                                @endphp
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
