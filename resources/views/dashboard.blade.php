@@ -47,6 +47,9 @@
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
                              aria-expanded="false">
+                             @if ($admin['image'] !== "")
+                                @php $admin['image'] = 'default.jpg'; @endphp
+                             @endif
                              <img src="{{url('assets/images/'.$admin['image'])}}" alt="profile image" class="user-avatar-md rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
@@ -85,8 +88,22 @@
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
                                     <i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-shopping-cart"></i>Products</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/cards.html">Add <span class="badge badge-secondary">Product</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/manage-products">Manage Products</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item ">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-controls="submenu-2" aria-expanded="false">
                                     <i class="fa fa-fw fa-user-circle"></i>Change Profile Picture <span class="badge badge-success">6</span>
                                 </a>
                                 <div class="profile-dropdown dropdown-menu mt-0 ">
@@ -101,7 +118,6 @@
                                     
                                 </div>
                             </li>
-                             
                         </ul>
                     </div>
                 </nav>
@@ -213,7 +229,7 @@
 
                                           <!-- recent orders  -->
                             <!-- ============================================================== -->
-                            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <h5 class="card-header">Recent Orders</h5>
                                     <div class="card-body p-0">
@@ -296,84 +312,85 @@
                             </div>
                             <!-- ============================================================== -->
                             <!-- end recent orders  -->
-                           
-                        <div class="row">
-                            <!-- ============================================================== -->
-                            <!-- sales  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Sales</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$12099</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end sales  -->
-                            <!-- ============================================================== -->
-                            <!-- ============================================================== -->
-                            <!-- new customer  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">New Customer</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">1245</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                        <div class="container">
+                            <div class="row">
+                                <!-- ============================================================== -->
+                                <!-- sales  -->
+                                <!-- ============================================================== -->
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <div class="card border-3 border-top border-top-primary">
+                                        <div class="card-body">
+                                            <h5 class="text-muted">Sales</h5>
+                                            <div class="metric-value d-inline-block">
+                                                <h1 class="mb-1">$12099</h1>
+                                            </div>
+                                            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                                <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end new customer  -->
-                            <!-- ============================================================== -->
-                            <!-- ============================================================== -->
-                            <!-- visitor  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Visitor</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">13000</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end visitor  -->
-                            <!-- ============================================================== -->
-                            <!-- ============================================================== -->
-                            <!-- total orders  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Total Orders</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">1340</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                                <!-- ============================================================== -->
+                                <!-- end sales  -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- new customer  -->
+                                <!-- ============================================================== -->
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <div class="card border-3 border-top border-top-primary">
+                                        <div class="card-body">
+                                            <h5 class="text-muted">New Customer</h5>
+                                            <div class="metric-value d-inline-block">
+                                                <h1 class="mb-1">1245</h1>
+                                            </div>
+                                            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                                <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- ============================================================== -->
+                                <!-- end new customer  -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- visitor  -->
+                                <!-- ============================================================== -->
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <div class="card border-3 border-top border-top-primary">
+                                        <div class="card-body">
+                                            <h5 class="text-muted">Visitor</h5>
+                                            <div class="metric-value d-inline-block">
+                                                <h1 class="mb-1">13000</h1>
+                                            </div>
+                                            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                                <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- end visitor  -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- total orders  -->
+                                <!-- ============================================================== -->
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                    <div class="card border-3 border-top border-top-primary">
+                                        <div class="card-body">
+                                            <h5 class="text-muted">Total Orders</h5>
+                                            <div class="metric-value d-inline-block">
+                                                <h1 class="mb-1">1340</h1>
+                                            </div>
+                                            <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                                                <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- end total orders  -->
+                                <!-- ============================================================== -->
                             </div>
-                            <!-- ============================================================== -->
-                            <!-- end total orders  -->
-                            <!-- ============================================================== -->
                         </div>
                         <div class="row">
                             <!-- ============================================================== -->

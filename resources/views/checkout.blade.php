@@ -25,9 +25,15 @@
             <form action="{{ route('pay') }}" role="form" accept-charset="UTF-8" method="POST">
                 @csrf
                     <div class="form-group">
-                        <label for="address">Your Address</label>
+                        <label for="firstname">First Name</label>
+                        <input type="hidden" class="form-control"  value="oladayo" name="first_name">
+                        <label for="lastname">Last Name</label>
+                        <input type="hidden" class="form-control" value="oladayo ahmod" name="last_name">
+                        <label for="number">Phone</label>
+                        <input type="number" class="form-control" name="phone">
+                        <label for="address">Address</label>
                         <textarea class="form-control" required name="address" id="" rows="3"></textarea>
-                        <input type="hidden" name="email" value="otemuyiwa@gmail.com"> {{-- required --}}
+                        <input type="email" name="email"> {{-- required --}}
                         <input type="hidden" name="orderID" value="345">
                         <input type="hidden" name="amount" value="{{$total}}"> {{-- required in kobo --}}
                         <input type="hidden" name="quantity" value="3">

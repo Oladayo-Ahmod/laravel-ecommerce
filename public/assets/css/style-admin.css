@@ -248,9 +248,9 @@ ul li {}
 }
 @media screen and (max-width:759px){
     .profile-dropdown{
-
-        width:90% !important;
-        margin-top:-10px !important;
+        width:100% !important;
+        margin-left : 0px !important; 
+        margin-top:2px !important;
     }
     
 }

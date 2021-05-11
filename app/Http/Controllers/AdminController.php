@@ -62,8 +62,6 @@ class AdminController extends Controller
         }
     }
 
-    // pr
-
     // profile picture functionality
     function profile_picture(Request $req){
         // validate the input
@@ -81,4 +79,6 @@ class AdminController extends Controller
             return back()->with('success','Image uploaded successfully');
         }
     }
+
+    
 }
