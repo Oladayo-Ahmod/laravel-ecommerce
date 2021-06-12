@@ -22,10 +22,11 @@
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/cards.html">Add <span class="badge badge-secondary">Product</span></a>
+                                            <a class="nav-link" type="button" data-toggle="modal" data-target="#add-product" style="cursor: pointer">Add
+                                                 <span class="badge badge-secondary" >Product</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/manage-products">Manage Products</a>
+                                            <a class="nav-link" href="/manage-products" style="cursor: pointer">Manage Products</a>
                                         </li>
                                         
                                     </ul>
@@ -50,6 +51,43 @@
                         </ul>
                     </div>
                 </nav>
+            </div>
+        </div>
+
+        
+        <!-- Modal -->
+        <div class="modal fade" id="add-product" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/add-product" class="form-group" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <label for="name">Product Name</label>
+                            <input type="text" class="form-control" required name="name">
+                            <label for="quantity"> Quantity</label>
+                            <input type="number" class="form-control" required name="quantity">
+                            <label for="price"> Price</label>
+                            <input type="number" class="form-control" required name="price">
+                            <label for="description">Description</label> <br>
+                            <textarea name="description" id="" rows="3" style="width: 100%;"></textarea><br>
+                            <label for="category">Category</label>
+                            <input type="text" class="form-control" required name="category">
+                            <label for="image">Product Image</label>
+                            <input type="file" class="form-control" name="image"><br>
+                            <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        
+                    </div>
+                </div>
             </div>
         </div>
         <!-- ============================================================== -->

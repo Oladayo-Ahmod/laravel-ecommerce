@@ -38,6 +38,7 @@ Route::get('/cartlist',[ProductController::class,'cartlist']);
 Route::get('/checkout',[ProductController::class,'checkout']);
 Route::post('/addtocart',[ProductController::class,'cart']);
 Route::get('/product/{id}',[ProductController::class,'product']);
+Route::get('/manage-products',[ProductController::class,'products_all']);
 // login and registration routes
 Route::view('/register','register');
 Route::view('login','login');
@@ -48,3 +49,5 @@ Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin',[AdminController::class,'login']);
 Route::get('/dashboard',[AdminController::class,'admin_details']);
 Route::post('/profile-picture',[AdminController::class,'profile_picture']);
+Route::post('/add-product',[ProductController::class,'add_products']);
+

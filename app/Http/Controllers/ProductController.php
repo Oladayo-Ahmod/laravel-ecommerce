@@ -121,4 +121,36 @@ class ProductController extends Controller
         }
     }
 
+    // dashboard functionality
+    function products_all(){
+        $products = Product::all();
+        return view('manage-products',['products'=> $products]);
+    }
+
+    function add_products(Request $req){
+        // validate the input
+        $validate = $req->validate([
+            'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
+        ]);
+        $imageName = time() . '.' . $req->image->extension();
+        // store the image in the public folder
+        if($req->image->move(public_path('assets/images'),$imageName)){
+            return back()->with('success','Image uploaded successfully');
+        }
+        else{
+            return back()->with('error','error uploading image, check if it is image');
+        }
+        // new product id for the product
+        $product_id = 'Id'.round(microtime(true)); 
+        // instantiating the product class
+        $product = new Product;
+        $product->price = $req->price;
+        $product->category = $req->category;
+        $product->description = $req->description;
+        $product->gallery = $imageName; // product image path
+        $product->quantity = $req->quantity;
+        $product->product_id = $product_id;
+        $product->save();
+    }
 }
+    
