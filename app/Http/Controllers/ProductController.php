@@ -134,23 +134,26 @@ class ProductController extends Controller
         ]);
         $imageName = time() . '.' . $req->image->extension();
         // store the image in the public folder
-        if($req->image->move(public_path('assets/images'),$imageName)){
-            return back()->with('success','Image uploaded successfully');
-        }
-        else{
+        if(!$req->image->move(public_path('assets/images'),$imageName)){ // if images is not valid
             return back()->with('error','error uploading image, check if it is image');
         }
         // new product id for the product
         $product_id = 'Id'.round(microtime(true)); 
         // instantiating the product class
         $product = new Product;
+        $product->name = $req->name;
         $product->price = $req->price;
         $product->category = $req->category;
         $product->description = $req->description;
         $product->gallery = $imageName; // product image path
         $product->quantity = $req->quantity;
         $product->product_id = $product_id;
-        $product->save();
+        if($product->save()){ // if product is added
+            return back()->with('success','New product added successfully');
+        }
+        else{
+            return back()->with('error','error adding product, try later! ');
+        }
     }
 }
     
