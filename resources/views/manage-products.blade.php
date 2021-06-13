@@ -127,14 +127,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($products as $product)
                                                 @php
-                                                 $count = 0;   
+                                                 $count = 1;   
                                                 @endphp
+                                            @foreach ($products as $product)
                                             <tr>
                                                 <td>{{$count++}}</td>
                                                 <td>
-                                                    <div class="m-r-10"><img src="{{url('assets/images'.$product['gallery'])}}" alt="product" class="rounded" width="45"></div>
+                                                    <div class="m-r-10"><img src="{{url('assets/images/'.$product['gallery'])}}" alt="product" class="rounded" width="45"></div>
                                                 </td>
                                                 <td>{{$product['name']}} </td>
                                                 <td>{{$product['product_id']}} </td>
