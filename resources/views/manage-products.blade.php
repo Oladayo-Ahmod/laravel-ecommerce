@@ -141,7 +141,14 @@
                                                 <td>{{$product['quantity']}}</td>
                                                 <td>{{$product['price']}}</td>
                                                 <td>{{$product['category']}}</td>
-                                                <td><span class="badge-dot badge-brand mr-1"></span>InTransit </td>
+                                                <td style="display:flex;" class="my-2">
+                                                    <a href="/edit/{{$product['id']}}">
+                                                        <i class="fas fa-edit mr-2 text-primary"></i>
+                                                    </a>
+                                                    <a href="/delete/{{$product['id']}}">
+                                                        <i class="fas fa-trash mr-2 text-danger"></i>
+                                                    </a> 
+                                                </td>
                                             </tr>
                                             @endforeach
                                             
