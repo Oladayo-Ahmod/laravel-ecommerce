@@ -4,7 +4,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <a class="d-xl-none d-lg-none" href="/dashboard">Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -14,7 +14,7 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
+                                <a class="nav-link active" href="/dashboard" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
                                     <i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
                             </li>
                             <li class="nav-item">
@@ -54,42 +54,7 @@
             </div>
         </div>
 
-        
-        <!-- Modal -->
-        <div class="modal fade" id="add-product" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Product</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/add-product" class="form-group" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <label for="name">Product Name</label>
-                            <input type="text" class="form-control" required name="name">
-                            <label for="quantity"> Quantity</label>
-                            <input type="number" class="form-control" required name="quantity">
-                            <label for="price"> Price</label>
-                            <input type="number" class="form-control" required name="price">
-                            <label for="description">Description</label> <br>
-                            <textarea name="description" id="" rows="3" style="width: 100%;"></textarea><br>
-                            <label for="category">Category</label>
-                            <input type="text" class="form-control" required name="category">
-                            <label for="image">Product Image</label>
-                            <input type="file" class="form-control" name="image"><br>
-                            <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
