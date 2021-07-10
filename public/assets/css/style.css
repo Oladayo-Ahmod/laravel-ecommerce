@@ -56,3 +56,7 @@ a{
 .redirect-links > a{
     color:white !important;
 }
+/* // pagination built in icon */
+.w-5{ 
+    display : none;
+}

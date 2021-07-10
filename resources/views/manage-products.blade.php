@@ -151,12 +151,14 @@
                                                 </td>
                                             </tr>
                                             @endforeach
-                                            
                                             <tr>
                                                 <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        {{$products->links()}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

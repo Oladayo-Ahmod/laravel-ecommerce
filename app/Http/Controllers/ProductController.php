@@ -125,7 +125,7 @@ class ProductController extends Controller
 
     // display every product
     function products_all(){
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('manage-products',['products'=> $products]);
     }
 
