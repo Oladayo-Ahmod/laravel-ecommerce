@@ -192,5 +192,16 @@ class ProductController extends Controller
             return back()->with('error','error editing product, try later! ');
         }
     }
+
+    // delete product functionality
+    function delete_product($id){
+        $product = Product::find($id);
+        if ($product->delete()){
+            return back()->with('success','Product deleted successfully!');
+        }
+        else{
+            return back()->with('error','Error deleting product!');
+        }
+    }
 }
     

@@ -145,7 +145,7 @@
                                                     <a href="/edit-product/{{$product['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
-                                                    <a href="/delete/{{$product['id']}}">
+                                                    <a href="/delete-product/{{$product['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a> 
                                                 </td>
