@@ -122,6 +122,8 @@ class ProductController extends Controller
     }
 
     // dashboard functionality
+
+    // display every product
     function products_all(){
         $products = Product::all();
         return view('manage-products',['products'=> $products]);
@@ -159,10 +161,11 @@ class ProductController extends Controller
     // show product for editing according to their id
     function show_product($id){
         $product = Product::find($id);
-        return $product;
+        return view('edit-product',['product' => $product]);
     }
-    // edit product functionalities
-    function edit_products(Request $req){
+
+    // update product functionalities
+    function update_products(Request $req){
         // validate the input
         $validate = $req->validate([
             'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
@@ -172,22 +175,21 @@ class ProductController extends Controller
         if(!$req->image->move(public_path('assets/images'),$imageName)){ // if images is not valid
             return back()->with('error','error uploading image, check if it is image');
         }
-        // new product id for the product
-        $product_id = 'Id'.round(microtime(true)); 
+        $id = $req->id; 
         // instantiating the product class
-        $product = new Product;
+        $product = Product::find($id);
         $product->name = $req->name;
         $product->price = $req->price;
         $product->category = $req->category;
         $product->description = $req->description;
         $product->gallery = $imageName; // product image path
         $product->quantity = $req->quantity;
-        $product->product_id = $product_id;
+        $product->product_id = $req->product_id;
         if($product->save()){ // if product is added
-            return back()->with('success','New product added successfully');
+            return back()->with('success','Product edited successfully');
         }
         else{
-            return back()->with('error','error adding product, try later! ');
+            return back()->with('error','error editing product, try later! ');
         }
     }
 }
