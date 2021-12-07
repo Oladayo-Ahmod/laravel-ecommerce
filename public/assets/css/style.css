@@ -24,7 +24,8 @@ body{
      text-decoration: none;
  }
  .trending a .card{
-    border-radius: 0.4rem!important;
+    /* border-radius: 0.4rem!important; */
+    border-color: transparent !important;
  }
  .details img{
     width: 100% !important;
