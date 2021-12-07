@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="container mt-0 mb-5">
+<div class="container mt-3 mb-5">
     <div id="carouselId" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -13,10 +13,10 @@
             
              <div class="carousel-item {{$product['id'] == 1 ? 'active': '' }}">
                  <a href="product/{{$product['id']}}">
-                 <img src="{{ url('assets/images')}}/{{$product['gallery']}}" height="320px" class="img-top" alt="image slide">
+                 <img src="{{ url('assets/images')}}/{{$product['gallery']}}" class="product_images" height="320px" class="img-top" alt="image slide">
                  <div class="carousel-caption d-none d-md-block">
-                     <h3 class="text-secondary">{{$product['name']}}</h3>
-                     <p class="text-info">{{$product['description']}}</p>
+                     <h3 class="text-primary">{{$product['name']}}</h3>
+                     <p class="text-white">{{$product['description']}}</p>
                  </div>
              </div>
             </a>
@@ -39,8 +39,8 @@
              @foreach($products as $product)
              <div class="col-md-3 my-4">
                  <a href="product/{{$product['id']}}">
-                     <div class="card shadow" style="background-color: rgba(113,127,142,0.25); border-color:rgb(230, 230, 248);">
-                         <img class="card-img-top" height="250px" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product">
+                     <div class="card shadow rouunded" style="background-color: rgba(113,127,142,0.25); border-color:rgb(230, 230, 248);">
+                         <img class="card-img-top rounded" height="250px" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product">
                          <div class="card-body">
                              <h4 class="card-title text-secondary">{{$product['name']}}</h4>
                              <p class="card-text">{{$product['description']}}</p>

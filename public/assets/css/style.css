@@ -5,6 +5,12 @@ body{
 
 }
  /* products styles */
+ .container .product_images{
+     width: 100%;
+     object-fit: cover;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
 .carousel-caption{
  background-color: rgba(113,127,142,0.25) !important;
  }
@@ -16,6 +22,9 @@ body{
  }
  .trending a, .cartlist a{
      text-decoration: none;
+ }
+ .trending a .card{
+    border-radius: 0.4rem!important;
  }
  .details img{
     width: 100% !important;
