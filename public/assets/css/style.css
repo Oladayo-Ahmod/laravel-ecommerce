@@ -27,6 +27,17 @@ body{
     /* border-radius: 0.4rem!important; */
     border-color: transparent !important;
  }
+ .trending .image-hover{
+    max-width: 100% !important;
+ }
+ .trending .image-hover img{
+    width: 300px !important;
+ }
+ .trending .image-hover img:hover{
+     /* transform: scale(0.1); */
+        width: 300px !important;
+        transform: scale(1.1);
+}
  .details img{
     width: 100% !important;
     height: 100% !important;

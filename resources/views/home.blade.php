@@ -40,7 +40,9 @@
              <div class="col-md-3 my-4">
                  <a href="product/{{$product['id']}}">
                      <div class="card shadow rounded" style="background-color: rgba(113,127,142,0.25); border-color:rgb(230, 230, 248);">
-                         <img class="card-img-top rounded trending-image" height="250px" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product">
+                        <div class="image-hover">
+                          <img class="card-img-top rounded trending-image" height="250px" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product">
+                        </div>
                          <div class="card-body">
                              <h4 class="card-title text-secondary">{{$product['name']}}</h4>
                              <p class="card-text">{{$product['description']}}</p>
