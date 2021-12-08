@@ -32,7 +32,7 @@
         </a>
     </div>
  </div>
- 
+
      <div class="container-fluid mt-5 trending">
          <h4 class="text-center text-secondary my-4">Trending Product</h4>
          <div class="row">
