@@ -32,6 +32,7 @@ body{
     overflow: hidden;
  }
  .trending .image-hover img{
+     object-fit: cover;
     width: 100% !important;
     transition: 1s ease;
  }
