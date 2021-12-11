@@ -56,16 +56,16 @@ body{
     text-align: center;
  }
  /* cartlist styles */
- .cartlist .image-hover{
+ .cart-container .image-hover{
     max-width: 100% !important;
     overflow: hidden;
  }
- .cartlist .image-hover img{
+ .cart-container .image-hover img{
      object-fit: cover;
     width: 100% !important;
     transition: 1s ease;
  }
- .cartlist .image-hover img:hover{
+ .cart-container .image-hover img:hover{
      /* transform: scale(0.1); */
         /* width: 100% !important; */
         transition: 1s ease;
