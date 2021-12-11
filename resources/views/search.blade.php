@@ -1,8 +1,9 @@
 @extends('master')
 @section('content')
-<div class="container-fluid mt-5 trending">
-    <h4 class="text-center text-secondary my-4 bg-light">Searched Product</h4>
+<div class="container-fluid  trending">
+    <h4 class="text-center text-secondary m3-4 ">Searched Products</h4>
     <div class="row">
+        @if (!empty($products)) 
         @foreach($products as $product)
         <div class="col-md-3 my-4">
             <a href="product/{{$product['id']}}">
@@ -19,6 +20,8 @@
             </a>
         </div>
         @endforeach
+        @endif
+       
     </div>
 </div>
 @endsection
