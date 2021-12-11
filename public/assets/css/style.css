@@ -25,16 +25,16 @@ body{
     /* border-radius: 0.4rem!important; */
     border-color: transparent !important;
  }
- .trending .image-hover{
+ .trending .image-hover, .product-details .image-hover{
     max-width: 100% !important;
     overflow: hidden;
  }
- .trending .image-hover img{
+ .trending .image-hover img, .product-details .image-hover img{
      object-fit: cover;
     width: 100% !important;
     transition: 1s ease;
  }
- .trending .image-hover img:hover{
+ .trending .image-hover img:hover,.product-details .image-hover img:hover{
      /* transform: scale(0.1); */
         /* width: 100% !important; */
         transition: 1s ease;
