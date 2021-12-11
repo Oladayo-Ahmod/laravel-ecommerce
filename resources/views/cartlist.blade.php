@@ -3,7 +3,7 @@
 <div class="container cartlist mt-5">
     <h3>Cart List</h3>
     <a href="/checkout" class="btn btn-success">Order Now</a>
-    <div class="row justify-content-center align-items-center">    
+    <div class="row my-3 shadow-lg rounded justify-content-center align-items-center">    
             @foreach ($products as $item)
             <div class="col-md-4">
                 <div class="card my-3 shadow cart-container">
