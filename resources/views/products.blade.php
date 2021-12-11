@@ -2,16 +2,15 @@
 @section('content')
     <div class="container mt-0 mb-5">
         <div class="row">
-            <div class="col-md-6 my-4">
+            <div class="col-md-5 my-4">
                 {{-- <a href="product/{{$product['id']}}"> --}}
-                    <div class=" product shadow" style=" border-color:rgb(230, 230, 248);">
-                        <img class="card-img-top" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product">
+                    <div class=" product shadow rounded bg-secondary"  style=" border-color:rgb(230, 230, 248);">
+                        <img class="card-img-top" src="{{ url('assets/images')}}/{{$product['gallery']}}" alt="trending product" style="object-fit: cover;">
                     </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="card-body">
-                    <a href="/">previous page</a>
+            <div class="col-md-6 my-4 ">
+                <div class="card-body shadow rounded">
+                    <a href="/">previous page <i class="fa fa-arrow-right"></i> </a>
                     <h2 class="card-title text-secondary">{{$product['name']}}</h2>
                     <h4 class="text-secondary">Price : <span class="badge badge-pill badge-danger">{{$product['price']}}</span> </h4>
                     <h4 class="text-secondary">Product Category : {{$product['category']}}</h4>
