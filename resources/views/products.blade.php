@@ -11,10 +11,10 @@
             <div class="col-md-6 my-4 ">
                 <div class="card-body shadow rounded">
                     <a href="/">previous page <i class="fa fa-arrow-right"></i> </a>
-                    <h2 class="card-title text-secondary">{{$product['name']}}</h2>
-                    <h4 class="text-secondary">Price : <span class="badge badge-pill badge-danger">{{$product['price']}}</span> </h4>
-                    <h4 class="text-secondary">Product Category : {{$product['category']}}</h4>
-                    <p class="card-text">Product Description : {{$product['description']}}</p>
+                    <h4 class="card-title text-secondary">{{$product['name']}}</h4>
+                    <h5 class="text-secondary">Price : <span class="badge badge-pill badge-danger">{{$product['price']}}</span> </h5>
+                    <h5 class="text-secondary card-text">Product Category : {{$product['category']}}</h5>
+                    <p class="card-text text-secondary">Product Description : {{$product['description']}}</p>
                     <br><br><br>
                     <form action="/addtocart" method="POST">
                         @csrf
