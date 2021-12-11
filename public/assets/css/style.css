@@ -17,9 +17,7 @@ body{
  .trending, .cartlist{
      margin-top: 100px !important;
  }
- .cartlist img{
-    max-height:200px !important;
- }
+
  .trending a, .cartlist a{
      text-decoration: none;
  }
@@ -56,6 +54,9 @@ body{
     text-align: center;
  }
  /* cartlist styles */
+ .cartlist img{
+    max-height:200px !important;
+ }
  .cart-container .image-hover{
     max-width: 100% !important;
     overflow: hidden;
