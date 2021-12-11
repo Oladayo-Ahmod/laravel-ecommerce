@@ -6,9 +6,11 @@
     <div class="row justify-content-center align-items-center">    
             @foreach ($products as $item)
             <div class="col-md-4">
-                <div class="card my-3 shadow">
+                <div class="card my-3 shadow cartlist">
                     <a href="/detail/{{$item->id}}">
-                        <img class="card-img-top" src="{{ url('assets/images')}}/{{$item->gallery}}" alt="">
+                        <div class="image-hover">
+                            <img class="card-img-top product_images" src="{{ url('assets/images')}}/{{$item->gallery}}" alt="">
+                        </div>
                     </a>
                 </div>
             </div>
