@@ -18,6 +18,7 @@ class UserController extends Controller
             'address'=> 'required',
             'email' => 'required|email',
             'password' => 'required|min:5',
+            'phone' => 'required|min:11',
             // 'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048' image upload functionality
         ]);
         // $imageName = time() . '.' . $req->image->extension(); image upload functionality
@@ -27,6 +28,7 @@ class UserController extends Controller
         $user->last_name = $req->last_name;
         $user->address = $req->address;
         $user->email = $req->email;
+        $user->phone = $req->phone;
         $user->password = Hash::make($req->password);
         $user->save();
         return back()->with('success','Signed up successfully');
