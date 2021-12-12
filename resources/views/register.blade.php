@@ -32,6 +32,8 @@
                     <input type="text" name="last_name" required placeholder="" class="form-control">
                     <label for="email">Email</label>
                     <input type="email" name="email" required class="form-control" id="">
+                    <label for="email">Phone</label>
+                    <input type="number" name="phone" required class="form-control" id="">
                     <label for="address">Address</label>
                     <input type="text" name="address" required class="form-control" id="">
                     {{-- <label for="image">Choose Image</label>
