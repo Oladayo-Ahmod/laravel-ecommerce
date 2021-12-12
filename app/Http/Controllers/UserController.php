@@ -21,7 +21,9 @@ class UserController extends Controller
         // $imageName = time() . '.' . $req->image->extension(); image upload functionality
         // $req->image->move(public_path('assets/images'), $imageName); image upload functionality
         $user = new User;
-        $user->name = $req->name;
+        $user->first_name = $req->first_name;
+        $user->last_name = $req->last_name;
+        $user->address = $req->address;
         $user->email = $req->email;
         $user->password = Hash::make($req->password);
         $user->save();
