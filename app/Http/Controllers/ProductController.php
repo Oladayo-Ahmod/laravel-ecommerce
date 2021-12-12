@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\User;
 use App\Models\Order;
 use Session;
 use DB;
@@ -57,7 +58,9 @@ class ProductController extends Controller
             ->where('carts.user_id',$user_id)
             ->select('products.*','carts.id as cart_id')
             ->get();
-            return view("cartlist",['products'=>$products]);
+            // user data
+            $user_data = User::where('id','=',$user_id)->first();
+            return view("cartlist",compact($products,$user_data));
         }
         else{
             return redirect('/');
