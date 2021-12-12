@@ -60,7 +60,7 @@ class ProductController extends Controller
             ->get();
             // user data
             $user_data = User::where('id','=',$user_id)->first();
-            return view("cartlist",compact($products,$user_data));
+            return view("cartlist",compact('products','user_data'));
         }
         else{
             return redirect('/');
