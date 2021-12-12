@@ -56,6 +56,6 @@ class UserController extends Controller
     function user_data(){
         $user_id = Session::get('user')['id'];
         $data = User::where('id','=',$user_id)->first();
-        return view("cartlist",['user_data'=>$data]);
+        // return view("cartlist",['user_data'=>$data]);
     }
 }

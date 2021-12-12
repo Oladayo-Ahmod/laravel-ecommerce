@@ -39,7 +39,7 @@
                     {{-- <label for="image">Choose Image</label>
                     <input type="file" name="image" required class="form-control"><br> --}}
                     <label for="password">Password</label>
-                    <input type="password" name="password" required class="form-control">
+                    <input type="password" name="password" required class="form-control"><br>
                     <div style="display:flex;">
                         <button type="submit" class="btn btn-primary mr-auto" name="signup">Sign up</button>
                         <a class="btn btn-danger" href="/login">Login</a>

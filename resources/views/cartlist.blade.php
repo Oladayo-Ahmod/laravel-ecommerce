@@ -2,6 +2,7 @@
 @section('content')
 <div class="container cartlist mt-5">
     <h3>Cart List</h3>
+{{-- {{dd($user_data)}} --}}
     <a href="/checkout" class="btn btn-success">Order Now</a>
     <div class="row my-3 shadow-lg rounded justify-content-center align-items-center">    
             @foreach ($products as $item)

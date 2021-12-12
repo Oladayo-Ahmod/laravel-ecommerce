@@ -91,7 +91,7 @@ class ProductController extends Controller
             ->where('carts.user_id',$user_id)
             ->select('products.*','carts.id as cart_id')
             ->sum('products.price');
-            return view('/checkout',['total'=>$total]);
+            return view('checkout',['total'=>$total]);
         }
         else{
             return redirect('/login');
