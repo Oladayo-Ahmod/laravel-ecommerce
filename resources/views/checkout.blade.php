@@ -33,7 +33,8 @@
                         <input type="number" class="form-control" name="phone">
                         <label for="address">Address</label>
                         <textarea class="form-control" required name="address" id="" rows="3"></textarea>
-                        <input type="email" name="email"> {{-- required --}}
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control"> {{-- required --}}
                         <input type="hidden" name="orderID" value="345">
                         <input type="hidden" name="amount" value="{{$total}}"> {{-- required in kobo --}}
                         <input type="hidden" name="quantity" value="3">
