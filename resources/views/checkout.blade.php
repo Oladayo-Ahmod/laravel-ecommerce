@@ -1,7 +1,6 @@
 @extends('master')
 @section('content')
 <div class="container cartlist mt-3">
-{{dd($total)}}
     <h3>Check Out</h3>
     <div class="row">
         <div class="col-md-9">
@@ -27,9 +26,9 @@
                 @csrf
                     <div class="form-group">
                         <label for="firstname">First Name</label>
-                        <input type="hidden" class="form-control"  value="oladayo" name="first_name">
+                        <input type="text" readonly class="form-control"  value="oladayo" name="first_name">
                         <label for="lastname">Last Name</label>
-                        <input type="hidden" class="form-control" value="oladayo ahmod" name="last_name">
+                        <input type="text" readonly class="form-control" value="oladayo ahmod" name="last_name">
                         <label for="number">Phone</label>
                         <input type="number" class="form-control" name="phone">
                         <label for="address">Address</label>
