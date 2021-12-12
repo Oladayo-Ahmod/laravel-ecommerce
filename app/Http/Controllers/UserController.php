@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
+use Session;
 
 class UserController extends Controller
 {
@@ -48,7 +49,7 @@ class UserController extends Controller
     // user data
     function user_data(){
         $user_id = Session::get('user')['id'];
-        $data = User::where('id','=',$user_id);
+        $data = User::where('id','=',$user_id)->first();
         return view("cartlist",['user_data'=>$data]);
     }
 }
