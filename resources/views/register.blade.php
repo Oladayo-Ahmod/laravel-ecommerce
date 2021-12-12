@@ -26,10 +26,14 @@
                 @endif
                 <form class="form-group" enctype="multipart/form-data" method="POST" action="/register">
                     @csrf
-                    <label for="name">Name</label>
-                    <input type="text" name="name" required placeholder="" class="form-control"><br>
+                    <label for="name">First Name</label>
+                    <input type="text" name="first_name" required placeholder="" class="form-control"><br>
+                    <label for="name">Last Name</label>
+                    <input type="text" name="last_name" required placeholder="" class="form-control"><br>
                     <label for="email">Email</label>
                     <input type="email" name="email" required class="form-control" id=""><br>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" required class="form-control" id=""><br>
                     {{-- <label for="image">Choose Image</label>
                     <input type="file" name="image" required class="form-control"><br> --}}
                     <label for="password">Password</label>

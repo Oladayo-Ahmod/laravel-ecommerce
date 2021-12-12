@@ -29,7 +29,7 @@
             @if(Session::has('user'))
             <li class="nav-item dropdown bg-light" style="border-radius: 10px;border:none;outline:none;">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-                 role="button" aria-haspopup="true" aria-expanded="false">{{Session::get('user')['name']}}</a>
+                 role="button" aria-haspopup="true" aria-expanded="false">{{Session::get('user')['first_name']}}</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item"  href="/logout">logout</a>
                     <a class="dropdown-item"  href="/profile">profile</a>
