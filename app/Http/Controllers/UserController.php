@@ -13,7 +13,9 @@ class UserController extends Controller
     function register(Request $req){
         // validate registration
         $validate = $req->validate([
-            'name'=> 'required',
+            'first_name'=> 'required',
+            'last_name'=> 'required',
+            'address'=> 'required',
             'email' => 'required|email',
             'password' => 'required|min:5',
             // 'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048' image upload functionality
