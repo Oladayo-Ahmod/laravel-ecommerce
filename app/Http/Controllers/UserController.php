@@ -44,4 +44,11 @@ class UserController extends Controller
             return back()->with('failure','incorrect username or password');
         }
     }
+
+    // user data
+    function user_data(){
+        $user_id = Session::get('user')['id'];
+        $data = User::where('id','=',$user_id);
+        return view("cartlist",['user_data'=>$data]);
+    }
 }

@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
 <div class="container cartlist mt-3">
+{{dd($total)}}
     <h3>Check Out</h3>
     <div class="row">
         <div class="col-md-9">
