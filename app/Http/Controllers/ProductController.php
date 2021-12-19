@@ -48,24 +48,24 @@ class ProductController extends Controller
     }
 
     // display all the products in the cart
-    function cartlist(){
-        $user_id = Session::get('user')['id'];
-        $count = Cart::where('user_id',$user_id)->count();
-        if (session()->has('user') && $count > 0) {
-            $user_id = Session::get('user')['id'];
-            $products = DB::table('carts')
-            ->join('products','carts.product_id','=','products.id')
-            ->where('carts.user_id',$user_id)
-            ->select('products.*','carts.id as cart_id')
-            ->get();
-            // user data
-            $user_data = User::where('id','=',$user_id)->first();
-            return view("cartlist",compact('products','user_data'));
-        }
-        else{
-            return redirect('/');
-        }
-    }
+    // function cartlist(){
+    //     $user_id = Session::get('user')['id'];
+    //     $count = Cart::where('user_id',$user_id)->count();
+    //     if (session()->has('user') && $count > 0) {
+    //         $user_id = Session::get('user')['id'];
+    //         $products = DB::table('carts')
+    //         ->join('products','carts.product_id','=','products.id')
+    //         ->where('carts.user_id',$user_id)
+    //         ->select('products.*','carts.id as cart_id')
+    //         ->get();
+    //         // user data
+    //         $user_data = User::where('id','=',$user_id)->first();
+    //         return view("cartlist",compact('products','user_data'));
+    //     }
+    //     else{
+    //         return redirect('/');
+    //     }
+    // }
     
     // remove product from the cart
     function remove($id){
@@ -89,12 +89,22 @@ class ProductController extends Controller
     function checkout(){
         if (session()->has('user')) {
             $user_id = Session::get('user')['id'];
+            // total products value
             $total = DB::table('carts')
             ->join('products','carts.product_id','=','products.id')
             ->where('carts.user_id',$user_id)
             ->select('products.*','carts.id as cart_id')
             ->sum('products.price');
-            return view('checkout',['total'=>$total]);
+            // total products ordered
+            $products = DB::table('carts')
+            ->join('products','carts.product_id','=','products.id')
+            ->where('carts.user_id',$user_id)
+            ->select('products.*','carts.id as cart_id')
+            ->get();
+            // user data
+            $user_data = User::where('id','=',$user_id)->first();
+            return view("checkout",compact('products','user_data','total'));
+            // return view('checkout',['total'=>$total]);
         }
         else{
             return redirect('/login');
