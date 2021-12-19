@@ -26,15 +26,15 @@
                 @csrf
                     <div class="form-group">
                         <label for="firstname">First Name</label>
-                        <input type="text" readonly class="form-control"  value="" name="first_name">
+                        <input type="text" readonly class="form-control"  value="{{$user_data['first_name']}}" name="first_name">
                         <label for="lastname">Last Name</label>
-                        <input type="text" readonly class="form-control" value="oladayo ahmod" name="last_name">
+                        <input type="text" readonly class="form-control" value="{{$user_data['last_name']}}" name="last_name">
                         <label for="number">Phone</label>
-                        <input type="number" class="form-control" name="phone">
+                        <input type="number" class="form-control" name="phone" value="{{$user_data['phone']}}">
                         <label for="address">Address</label>
-                        <textarea class="form-control" required name="address" id="" rows="3"></textarea>
+                        <textarea class="form-control" required readonly name="address" id="" rows="3">{{$user_data['address']}}</textarea>
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control"> {{-- required --}}
+                        <input type="email" name="email" class="form-control" value="{{$user_data['email']}}"> {{-- required --}}
                         <input type="hidden" name="orderID" value="345">
                         <input type="hidden" name="amount" value="{{$total}}"> {{-- required in kobo --}}
                         <input type="hidden" name="quantity" value="3">
