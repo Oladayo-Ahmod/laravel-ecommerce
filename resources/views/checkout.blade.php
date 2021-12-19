@@ -12,7 +12,7 @@
                         <th>Delivery</th>
                         <th>Total</th>
                     </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
                         <tr>
                             <td scope="row">{{$total}}</td>
@@ -26,7 +26,7 @@
                 @csrf
                     <div class="form-group">
                         <label for="firstname">First Name</label>
-                        <input type="text" readonly class="form-control"  value="oladayo" name="first_name">
+                        <input type="text" readonly class="form-control"  value="" name="first_name">
                         <label for="lastname">Last Name</label>
                         <input type="text" readonly class="form-control" value="oladayo ahmod" name="last_name">
                         <label for="number">Phone</label>
