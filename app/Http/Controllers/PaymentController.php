@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Paystack;
+use App\Models\Order; 
 
 class PaymentController extends Controller
 {
@@ -32,6 +33,14 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
+        $order = new Order;
+        $order->first_name = $paymentDetails['data']['metadata']['first_name'];
+        $order->last_name = $paymentDetails['data']['metadata']['last_name'];
+        $order->status = $paymentDetails['data']['metadata']['status'];
+        $order->address = $paymentDetails['data']['metadata']['address'];
+        $order->payment_status = $paymentDetails['data']['metadata']['payment_status'];
+        $order->payment_method = $paymentDetails['data']['metadata']['payment_method'];
+        // dd($paymentDetails['data']['metadata']['first_name']);
         dd($paymentDetails);
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
