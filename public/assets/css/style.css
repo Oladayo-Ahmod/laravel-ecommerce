@@ -6,13 +6,16 @@ body{
 }
  /* products styles */
  .container .product_images{
-     width: 100%;
+     width: auto;
      object-fit: cover;
      background-repeat: no-repeat;
      background-size: cover;
  }
 .carousel-caption{
  background-color: rgba(113,127,142,0.25) !important;
+ }
+ .carousel-item{
+    text-align: center;
  }
  .trending, .cartlist{
      margin-top: 100px !important;
