@@ -40,8 +40,9 @@ class PaymentController extends Controller
         $order->address = $paymentDetails['data']['metadata']['address'];
         $order->payment_status = $paymentDetails['data']['metadata']['payment_status'];
         $order->payment_method = $paymentDetails['data']['metadata']['payment_method'];
+        $order->save();
         // dd($paymentDetails['data']['metadata']['first_name']);
-        dd($paymentDetails);
+        // dd($paymentDetails);
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want
