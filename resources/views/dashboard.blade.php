@@ -133,9 +133,9 @@
                                                     <tr>
                                                         <td>1</td>
                                                         <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
+                                                            <div class="m-r-10"><img src="assets/images/{{$order->gallery}}" alt="user" class="rounded" width="45"></div>
                                                         </td>
-                                                        <td>Product #1 </td>
+                                                        <td>{{$order->name}} </td>
                                                         <td>id000001 </td>
                                                         <td>20</td>
                                                         <td>$80.00</td>
@@ -185,6 +185,7 @@
                                                     <tr>
                                                         <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
