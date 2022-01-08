@@ -46,7 +46,7 @@ class PaymentController extends Controller
         if($order->save()){
             Cart::destroy($paymentDetails['data']['metadata']['product_id']);
             // return back()->with('payment_success','You have successfully made payment for the product(s)');
-            return redirect()->route('/home')->with('payment_success','You have successfully made payment for the product(s)');
+            return redirect('/')->with('payment_success','You have successfully made payment for the product(s)');
         }
         // dd($paymentDetails['data']['metadata']['first_name']);
         // dd($paymentDetails);
