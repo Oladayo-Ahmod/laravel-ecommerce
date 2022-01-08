@@ -44,7 +44,7 @@ class PaymentController extends Controller
         $order->payment_status = $paymentDetails['data']['status'];
         $order->payment_method = $paymentDetails['data']['channel'];
         if($order->save()){
-            Cart::destroy($paymentDetails['data']['metadata']['product_id']);
+            Cart::where('product_id',$paymentDetails['data']['metadata']['product_id'])->delete();
             // return back()->with('payment_success','You have successfully made payment for the product(s)');
             return redirect('/')->with('payment_success','You have successfully made payment for the product(s)');
         }
