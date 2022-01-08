@@ -129,6 +129,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach($orders as $order)
                                                     <tr>
                                                         <td>1</td>
                                                         <td>

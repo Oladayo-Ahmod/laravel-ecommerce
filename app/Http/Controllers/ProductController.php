@@ -218,7 +218,9 @@ class ProductController extends Controller
     }
     // show recent order
     function recent_order(){
-        $orders = DB::table('orders')->orderBy('id','desc')->limit(3)->get();
+        $orders = DB::table('orders')->
+        leftJoin('products','orders.product_id','=','products.id')->
+        orderBy('orders.id','desc')->limit(3)->get();
         return view('dashboard',['orders'=>$orders]);
     }
 }
