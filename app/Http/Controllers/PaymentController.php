@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Paystack;
 use App\Models\Order; 
+use App\Models\Cart;
 
 class PaymentController extends Controller
 {
@@ -41,8 +42,10 @@ class PaymentController extends Controller
         $order->user_id = $paymentDetails['data']['metadata']['user_id'];
         $order->payment_status = $paymentDetails['data']['status'];
         $order->payment_method = $paymentDetails['data']['channel'];
-        $order->save();
-        return back()->with('payment_success','You have successfully made payment for the product(s)');
+        if($order->save()){
+            Cart::destroy($paymentDetails['data']['metadata']['product_id']);
+            return back()->with('payment_success','You have successfully made payment for the product(s)');
+        }
         // dd($paymentDetails['data']['metadata']['first_name']);
         // dd($paymentDetails);
         // Now you have the payment details,
