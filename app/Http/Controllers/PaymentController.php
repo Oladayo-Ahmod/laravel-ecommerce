@@ -42,6 +42,7 @@ class PaymentController extends Controller
         $order->user_id = $paymentDetails['data']['metadata']['user_id'];
         $order->product_id = $paymentDetails['data']['metadata']['product_id'];
         $order->payment_status = $paymentDetails['data']['status'];
+        $order->delivery_status = "in progress";
         $order->payment_method = $paymentDetails['data']['channel'];
         if($order->save()){
             Cart::where('product_id',$paymentDetails['data']['metadata']['product_id'])->delete();

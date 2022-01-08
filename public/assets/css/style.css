@@ -14,9 +14,6 @@ body{
 .carousel-caption{
  background-color: rgba(113,127,142,0.25) !important;
  }
- .error-message{
-     background-color: #fff0fd;
- }
  .carousel-item{
     text-align: center;
  }
