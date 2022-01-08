@@ -40,11 +40,13 @@ class PaymentController extends Controller
         $order->status = $paymentDetails['message'];
         $order->address = $paymentDetails['data']['metadata']['address'];
         $order->user_id = $paymentDetails['data']['metadata']['user_id'];
+        $order->product_id = $paymentDetails['data']['metadata']['product_id'];
         $order->payment_status = $paymentDetails['data']['status'];
         $order->payment_method = $paymentDetails['data']['channel'];
         if($order->save()){
             Cart::destroy($paymentDetails['data']['metadata']['product_id']);
-            return back()->with('payment_success','You have successfully made payment for the product(s)');
+            // return back()->with('payment_success','You have successfully made payment for the product(s)');
+            return redirect()->route('/home')->with('payment_success','You have successfully made payment for the product(s)');
         }
         // dd($paymentDetails['data']['metadata']['first_name']);
         // dd($paymentDetails);
