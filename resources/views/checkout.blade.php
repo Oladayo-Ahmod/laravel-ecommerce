@@ -48,7 +48,8 @@
                         <input type="hidden" name="quantity" value="1">
                         <input type="hidden" name="currency" value="NGN">
                         <input type="hidden" name="metadata" value="{{ json_encode($array = ['email' =>$user_data['email'],
-                        'first_name' => $user_data['first_name'],'last_name' => $user_data['last_name'], 'user_id'=>$user_data['id'], 'address' => $user_data['address']]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                        'first_name' => $user_data['first_name'],'last_name' => $user_data['last_name'],
+                         'user_id'=>$user_data['id'],'product_id'=>$products['id'], 'address' => $user_data['address']]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                         <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
                         {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
