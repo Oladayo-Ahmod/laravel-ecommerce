@@ -32,7 +32,22 @@
         </a>
     </div>
  </div>
-
+        {{-- error message --}}
+        <div class="error-message container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-5">
+                    @if(Session::has('payment_success'))
+                    <div class="alert alert-success text-white">
+                        {{Session::get('payment_success')}}
+                    </div>
+                    @endif
+                    @php
+                        Session::forget('payment_success')
+                    @endphp
+                </div>
+            </div>
+        </div>
+        
      <div class="container-fluid mt-5 trending ">
          <h4 class="text-center text-secondary my-4">Trending Product</h4>
          <div class="row">
