@@ -38,6 +38,7 @@ class PaymentController extends Controller
         $order->last_name = $paymentDetails['data']['metadata']['last_name'];
         $order->status = $paymentDetails['message'];
         $order->address = $paymentDetails['data']['metadata']['address'];
+        $order->user_id = $paymentDetails['data']['metadata']['user_id'];
         $order->payment_status = $paymentDetails['data']['status'];
         $order->payment_method = $paymentDetails['data']['channel'];
         $order->save();
