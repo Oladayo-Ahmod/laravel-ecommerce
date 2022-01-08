@@ -4,6 +4,14 @@
     <h3>Check Out</h3>
     <div class="row">
         <div class="col-md-9">
+            @if(Session::has('payment_success'))
+            <div class="alert alert-success text-white">
+                {{Session::get('payment_success')}}
+            </div>
+            @endif
+            @php
+                Session::forget('payment_success')
+            @endphp
             <table class="table table-striped table-inverse table-responsive">
                 <thead class="">
                     <tr>
