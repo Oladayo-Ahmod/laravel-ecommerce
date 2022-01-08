@@ -33,9 +33,9 @@
     </div>
  </div>
         {{-- error message --}}
-        <div class="error-message container">
+        <div class=" container">
             <div class="row justify-content-center align-items-center">
-                <div class="col-md-5">
+                <div class="col-md-5 error-message">
                     @if(Session::has('payment_success'))
                     <div class="alert alert-success text-white">
                         {{Session::get('payment_success')}}
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        
+
      <div class="container-fluid mt-5 trending ">
          <h4 class="text-center text-secondary my-4">Trending Product</h4>
          <div class="row">

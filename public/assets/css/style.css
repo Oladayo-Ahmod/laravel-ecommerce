@@ -11,7 +11,7 @@ body{
      background-repeat: no-repeat;
      background-size: cover;
  }
-.carousel-caption{
+.carousel-caption, .error-message{
  background-color: rgba(113,127,142,0.25) !important;
  }
  .carousel-item{
