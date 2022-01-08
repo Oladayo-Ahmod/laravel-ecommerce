@@ -49,6 +49,7 @@ Route::post('/login',[UserController::class,'login']);
 Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin',[AdminController::class,'login']);
 Route::get('/dashboard',[AdminController::class,'admin_details']);
+Route::get('/dashboard',[ProductController::class,'recent_order']);
 Route::post('/profile-picture',[AdminController::class,'profile_picture']);
 Route::post('/add-product',[ProductController::class,'add_products']);
 Route::get('/edit-product/{id}',[ProductController::class,'show_product']); // show product according to their id

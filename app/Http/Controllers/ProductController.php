@@ -216,5 +216,10 @@ class ProductController extends Controller
             return back()->with('error','Error deleting product!');
         }
     }
+    // show recent order
+    function recent_order(){
+        $orders = DB::table('orders')->orderBy('id','desc')->limit(3)->get();
+        return view('dashboard',['orders'=>$orders]);
+    }
 }
     
