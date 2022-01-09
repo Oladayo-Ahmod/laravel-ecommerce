@@ -48,9 +48,9 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Total Revenue</h5>
+                                        <h5 class="text-muted">Total Orders</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$12099</h1>
+                                            <h1 class="mb-1">{{$count_orders}}</h1>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                             <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -62,7 +62,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Affiliate Revenue</h5>
+                                        <h5 class="text-muted">Orders Delivered</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">$12099</h1>
                                         </div>
@@ -76,7 +76,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Refunds</h5>
+                                        <h5 class="text-muted">Orders In Progress</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">0.00</h1>
                                         </div>
@@ -90,7 +90,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="text-muted">Avg. Revenue Per User</h5>
+                                        <h5 class="text-muted">Orders Cancelled</h5>
                                         <div class="metric-value d-inline-block">
                                             <h1 class="mb-1">$28000</h1>
                                         </div>
@@ -237,40 +237,7 @@
                                 <!-- ============================================================== -->
                             </div>
                         </div>
-                        <div class="row">
-                            <!-- ============================================================== -->
-                            <!-- total revenue  -->
-                            <!-- ============================================================== -->
-  
-                            
-                            <!-- ============================================================== -->
-                            <!-- ============================================================== -->
-                            <!-- category revenue  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header">Revenue by Category</h5>
-                                    <div class="card-body">
-                                        <div id="c3chart_category" style="height: 420px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end category revenue  -->
-                            <!-- ============================================================== -->
-
-                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header"> Total Orders</h5>
-                                    <div class="card-body">
-                                        <div id="morris_totalrevenue"></div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <p class="display-7 font-weight-bold"><span class="text-primary d-inline-block">$26,000</span><span class="text-success float-right">+9.45%</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                     
                         
             
         </div>
