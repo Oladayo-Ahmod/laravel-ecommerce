@@ -145,7 +145,7 @@
                                                         <td>{{$order->created_at}}</td>
                                                         <td>{{$order->first_name}} {{$order->last_name}} </td>
                                                         <td><span class="badge-dot  mr-1 @if($order->delivery_status == 'in progress') {{'badge-brand'}}
-                                                             @elseif($order->delivery_status == 'delivered') {{'badge-success'}} @else {{'badge-danger'}} @endif  "></span>{{$order->delivery_status}} </td>
+                                                             @elseif($order->delivery_status == 'delivered') {{'badge-success'}} @else {{'badge-danger'}} @endif "></span>{{$order->delivery_status}} </td>
                                                     </tr>
                                                     
                                                     @endforeach
