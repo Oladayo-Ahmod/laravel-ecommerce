@@ -261,7 +261,7 @@
 
                             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header"> Total Revenue</h5>
+                                    <h5 class="card-header"> Total Orders</h5>
                                     <div class="card-body">
                                         <div id="morris_totalrevenue"></div>
                                     </div>

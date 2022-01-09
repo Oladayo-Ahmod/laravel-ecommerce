@@ -221,7 +221,9 @@ class ProductController extends Controller
         $orders = DB::table('orders')->
         leftJoin('products','orders.product_id','=','products.id')->
         orderBy('orders.id','desc')->limit(3)->get();
-        return view('dashboard',['orders'=>$orders]);
+        $count_orders = DB::table('orders')->count();
+        return view('dashboard', compact('orders','count_orders'));
     }
+   
 }
     
