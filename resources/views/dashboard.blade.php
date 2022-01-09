@@ -64,7 +64,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Orders Delivered</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$12099</h1>
+                                            <h1 class="mb-1">{{$orders_delivered}}</h1>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                             <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -78,7 +78,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Orders In Progress</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">0.00</h1>
+                                            <h1 class="mb-1">{{$orders_inprogress}}</h1>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
                                             <span>N/A</span>
@@ -92,7 +92,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Orders Cancelled</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$28000</h1>
+                                            <h1 class="mb-1">{{$orders_cancelled}}</h1>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                                             <span>-2.00%</span>
