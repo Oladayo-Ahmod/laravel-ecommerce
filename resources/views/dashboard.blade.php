@@ -129,9 +129,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @php
+                                                        $count = 1;
+                                                    @endphp
                                                     @foreach($orders as $order)
                                                     <tr>
-                                                        <td>1</td>
+                                                        <td>{{$count++}}</td>
                                                         <td>
                                                             <div class="m-r-10"><img src="assets/images/{{$order->gallery}}" alt="user" class="rounded" width="45"></div>
                                                         </td>
@@ -141,8 +144,8 @@
                                                         <td>{{$order->price}}</td>
                                                         <td>{{$order->created_at}}</td>
                                                         <td>{{$order->first_name}} {{$order->last_name}} </td>
-                                                        <td><span class="badge-dot  mr-1  badge-brand
-                                                              "></span> </td>
+                                                        <td><span class="badge-dot  mr-1 @if($order->delivery_status == 'in progress') {{'badge-brand'}}
+                                                             @elseif($order->delivery_status == 'delivered') {{'badge-success'}} @else {{'badge-danger'}} @endif  "></span>{{$order->delivery_status}} </td>
                                                     </tr>
                                                     
                                                     @endforeach
