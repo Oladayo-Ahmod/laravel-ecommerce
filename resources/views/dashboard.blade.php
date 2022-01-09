@@ -141,7 +141,8 @@
                                                         <td>{{$order->price}}</td>
                                                         <td>{{$order->created_at}}</td>
                                                         <td>{{$order->first_name}} {{$order->last_name}} </td>
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>{{$order->deliver_status}} </td>
+                                                        <td><span class="badge-dot  mr-1  badge-brand
+                                                              "></span> </td>
                                                     </tr>
                                                     
                                                     @endforeach
