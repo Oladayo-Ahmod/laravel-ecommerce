@@ -1,5 +1,5 @@
 @extends('admin-master')
-@section('manage_products')
+@section('manage_categorys')
 <div class="dashboard-wrapper">
     <div class="dashboard-ecommerce">
         <div class="container-fluid dashboard-content ">
@@ -46,23 +46,18 @@
               
                     <!-- ============================================================== -->
 
-                                  <!-- products  -->
+                                  <!-- categorys  -->
                     <!-- ============================================================== -->
                     <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Manage Products</h5>
+                            <h5 class="card-header">Manage Categories</h5>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class="bg-light">
                                             <tr class="border-0">
                                                 <th class="border-0">#</th>
-                                                <th class="border-0">Image</th>
-                                                <th class="border-0">Product Name</th>
-                                                <th class="border-0">Product Id</th>
-                                                <th class="border-0">Quantity</th>
-                                                <th class="border-0">Price</th>
-                                                <th class="border-0">Category</th>
+                                                <th class="border-0">Category Name</th>
                                                 <th class="border-0">Action</th>
                                             </tr>
                                         </thead>
@@ -70,22 +65,15 @@
                                                 @php
                                                  $count = 1;   
                                                 @endphp
-                                            @foreach ($products as $product)
+                                            @foreach ($categorys as $category)
                                             <tr>
                                                 <td>{{$count++}}</td>
-                                                <td>
-                                                    <div class="m-r-10"><img src="{{url('assets/images/'.$product['gallery'])}}" alt="product" class="rounded" width="45"></div>
-                                                </td>
-                                                <td>{{$product['name']}} </td>
-                                                <td>{{$product['product_id']}} </td>
-                                                <td>{{$product['quantity']}}</td>
-                                                <td>{{$product['price']}}</td>
-                                                <td>{{$product['category']}}</td>
+                                                <td>{{$category['name']}} </td>
                                                 <td style="display:flex;" class="my-2">
-                                                    <a href="/edit-product/{{$product['id']}}">
+                                                    <a href="/edit-category/{{$category['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
-                                                    <a href="/delete-product/{{$product['id']}}">
+                                                    <a href="/delete-category/{{$category['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a> 
                                                 </td>
@@ -97,48 +85,31 @@
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        {{$products->links()}}
+                                        {{$categorys->links()}}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end manage  products  -->
-                     <!-- edit product Modal -->
-        <div class="modal fade" id="edit-product" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <!-- end manage  categorys  -->
+                     <!-- edit category Modal -->
+        <div class="modal fade" id="edit-category" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Product</h5>
+                        <h5 class="modal-title">Edit category</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/edit-product" class="form-group" method="post" enctype="multipart/form-data">
+                        <form action="/edit-category" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
-                            <label for="name">Product Name</label>
-                            <input type="text" class="form-control" value="{{$product['name']}}" required name="name">
-                            <label for="quantity"> Quantity</label>
-                            <input type="number" class="form-control" value="{{$product['quantity']}}" required name="quantity">
-                            <label for="price"> Price</label>
-                            <input type="number" class="form-control"value="{{$product['price']}}" required name="price">
-                            <label for="description">Description</label> <br>
-                            <textarea name="description" id="" rows="3" style="width: 100%;">{{$product['description']}}</textarea><br>
-                            <label for="category">Category</label>
-                            <input type="text" class="form-control" value="{{$product['category']}}" required name="category">
-                            <label for="product_id">Product Id</label>
-                            <input type="text" class="form-control" value="{{$product['product_id']}}" readonly required name="category">
-                            <label for="image">Product Image</label>
-                            <div class="row">
-                                <div class="col-3 col-lg-3 col-md-4 col-sm-6">
-                                    <img class="img-fluid" src="{{url('assets/images/'.$product['gallery'])}}" alt="product image" srcset="">
-                                </div>
-                            </div>
-                            <input type="file" class="form-control" name="image"><br>
-                            <input type="hidden" name="main_id" value="{{$product['id']}}">
-                            <button type="submit" name="edit-product" class="btn btn-primary btn-sm">Edit</button>
+                            <label for="name">category Name</label>
+                            <input type="text" class="form-control" value="{{$category['name']}}" required name="name"><br>
+                            <input type="hidden" name="main_id" value="{{$category['id']}}">
+                            <button type="submit" name="edit-category" class="btn btn-primary btn-sm">Edit</button>
                         </form>
                     </div>
                     <div class="modal-footer">
