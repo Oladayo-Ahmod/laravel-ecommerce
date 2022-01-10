@@ -32,6 +32,21 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-shopping-cart"></i>Product Category</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" type="button" data-toggle="modal" data-target="#add-product" style="cursor: pointer">Add
+                                                 <span class="badge badge-secondary" >Add Category</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/manage-products" style="cursor: pointer">Manage Category</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-controls="submenu-2" aria-expanded="false">
                                     <i class="fa fa-fw fa-user-circle"></i>Change Profile Picture <span class="badge badge-success">6</span>
