@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Category;
 use Session;
 use DB;
 class ProductController extends Controller
@@ -171,6 +172,12 @@ class ProductController extends Controller
         }
     }
 
+    // add category
+    function add_category(Request $request){
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+    }
     // show product for editing according to their id
     function show_product($id){
         $product = Product::find($id);

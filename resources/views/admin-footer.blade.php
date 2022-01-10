@@ -75,7 +75,7 @@
                         <form action="/add-product" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
                             <label for="name">Category Name</label>
-                            <input type="text" class="form-control" required name="name">
+                            <input type="text" class="form-control" required name="name"><br>
                             <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
                         </form>
                     </div>
