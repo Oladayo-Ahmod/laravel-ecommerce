@@ -65,7 +65,7 @@
                                                 @php
                                                  $count = 1;   
                                                 @endphp
-                                            @foreach ($categorys as $category)
+                                            @foreach ($categories as $category)
                                             <tr>
                                                 <td>{{$count++}}</td>
                                                 <td>{{$category['name']}} </td>
