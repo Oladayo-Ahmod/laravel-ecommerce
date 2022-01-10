@@ -72,7 +72,7 @@
                             </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/add-product" class="form-group" method="post" enctype="multipart/form-data">
+                        <form action="/add-category" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
                             <label for="name">Category Name</label>
                             <input type="text" class="form-control" required name="name"><br>

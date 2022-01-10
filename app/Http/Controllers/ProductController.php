@@ -176,7 +176,12 @@ class ProductController extends Controller
     function add_category(Request $request){
         $category = new Category;
         $category->name = $request->name;
-        $category->save();
+        if($category->save()){ // if product is added
+            return back()->with('success','New category added successfully');
+        }
+        else{
+            return back()->with('error','error adding category, try later! ');
+        }
     }
     // show product for editing according to their id
     function show_product($id){
