@@ -37,11 +37,11 @@
                                 <div id="submenu-3" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button" data-toggle="modal" data-target="#add-product" style="cursor: pointer">Add
+                                            <a class="nav-link" type="button" data-toggle="modal" data-target="#add-category" style="cursor: pointer">Add
                                                  <span class="badge badge-secondary" >Add Category</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/manage-products" style="cursor: pointer">Manage Products</a>
+                                            <a class="nav-link" href="/manage-categories" style="cursor: pointer">Manage Categories</a>
                                         </li>
                                         
                                     </ul>
