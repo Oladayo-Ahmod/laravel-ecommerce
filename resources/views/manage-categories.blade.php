@@ -1,6 +1,5 @@
 @extends('admin-master')
-@section('manage_categorys')
-
+@section('manage-categories')
 <div class="dashboard-wrapper">
     <div class="dashboard-ecommerce">
         <div class="container-fluid dashboard-content ">
@@ -41,13 +40,73 @@
             </div>
             <!-- ============================================================== -->
             <!-- end pageheader  -->
-            @include('layouts/order_details')
+            <!-- ============================================================== -->
+            <div class="ecommerce-widget">
+
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Total Revenue</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$12099</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Affiliate Revenue</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$12099</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue2"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Refunds</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">0.00</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
+                                    <span>N/A</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue3"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Avg. Revenue Per User</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$28000</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                                    <span>-2.00%</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue4"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <!-- ============================================================== -->
               
                     <!-- ============================================================== -->
 
-                                  <!-- categorys  -->
+                                  <!-- products  -->
                     <!-- ============================================================== -->
                     <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                         <div class="card">
@@ -71,10 +130,10 @@
                                                 <td>{{$count++}}</td>
                                                 <td>{{$category['name']}} </td>
                                                 <td style="display:flex;" class="my-2">
-                                                    <a href="/edit-category/{{$category['id']}}">
+                                                    <a href="/edit-product/{{$category['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
-                                                    <a href="/delete-category/{{$category['id']}}">
+                                                    <a href="/delete-product/{{$category['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a> 
                                                 </td>
@@ -86,39 +145,14 @@
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        
+                                        {{-- {{$products->links()}} --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end manage  categorys  -->
-                     <!-- edit category Modal -->
-        <div class="modal fade" id="edit-category" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit category</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/edit-category" class="form-group" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <label for="name">category Name</label>
-                            <input type="text" class="form-control" value="{{$category['name']}}" required name="name"><br>
-                            <input type="hidden" name="main_id" value="{{$category['id']}}">
-                            <button type="submit" name="edit-category" class="btn btn-primary btn-sm">Edit</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <!-- end manage  products  -->
+                  
                    
 @endsection
