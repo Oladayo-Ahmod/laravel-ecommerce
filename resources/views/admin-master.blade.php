@@ -25,6 +25,7 @@
     {{View::make('admin-sidebar')}}
         @yield('dashboard')
         @yield('manage_products')
+        @yield('manage-categories')
     {{View::make('admin-footer')}}
 
         <!-- ============================================================== -->
