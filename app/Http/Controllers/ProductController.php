@@ -185,7 +185,15 @@ class ProductController extends Controller
     }
     function show_categories(){
         $categories = Category::all();
-        return view('manage-categories',['categories'=>$categories]);
+        $orders = DB::table('orders')->
+        leftJoin('products','orders.product_id','=','products.id')->
+        orderBy('orders.id','desc')->limit(3)->get();
+        $count_orders = DB::table('orders')->count();
+        $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
+        $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
+        $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
+        return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories'));
+        // return view('manage-categories',['categories'=>$categories]);
     }
     // show product for editing according to their id
     function show_product($id){
@@ -242,6 +250,7 @@ class ProductController extends Controller
         $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
         $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
         return view('dashboard', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
+        // return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
     }
    
 }
