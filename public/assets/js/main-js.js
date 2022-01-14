@@ -107,5 +107,31 @@ jQuery(document).ready(function($) {
  // }
 
 }); // AND OF JQUERY
+// delete category functionality ajax
+$.ajaxSetup({
+    headers : {
+        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+    }
+})
 
-Swal.fire('check')
+$(function(){
+    $.ajax({
+        url : $(form).attr('action'),
+        method : $(form).attr('method'),
+        data : new FormData(form),
+        processData : false,
+        dataType : JSON,
+        contentType : false,
+        success : function(response){
+            if (response = 'deleted') {
+                Swal.fire(
+                    'Deleted!',
+                    'Category deleted successfully.',
+                    'success'
+                )
+                console.log(response)
+            }
+        }
+    
+    })
+})
