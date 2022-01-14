@@ -1,5 +1,6 @@
 @extends('admin-master')
 @section('manage_categorys')
+{{dd($categories)}}
 <div class="dashboard-wrapper">
     <div class="dashboard-ecommerce">
         <div class="container-fluid dashboard-content ">
@@ -85,7 +86,7 @@
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        {{$categorys->links()}}
+                                        
                                     </div>
                                 </div>
                             </div>
