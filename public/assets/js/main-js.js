@@ -108,25 +108,4 @@ jQuery(document).ready(function($) {
 
 }); // AND OF JQUERY
 
-
-// $(function() {
-//     "use strict";
-
-
-    
-
-   // var monkeyList = new List('test-list', {
-    //    valueNames: ['name']
-
-     // });
-  // var monkeyList = new List('test-list-2', {
-    //    valueNames: ['name']
-
-   // });
-
-
-
-   
-   
-
-// });
+Swal.fire('check')

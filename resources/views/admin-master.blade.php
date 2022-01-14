@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ url('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('assets/css/sweetalert2.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/sweetalert2.min.css') }}">
     {{-- sweet aleert css --}}
     <link rel="stylesheet" href="{{ url('assets/css/style-admin.css') }}">
     <link rel="stylesheet" href="{{ url('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
@@ -38,10 +38,10 @@
     <script src="{{ url('assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
     <!-- slimscroll js -->
     <script src="{{ url('assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
-    <!-- main js -->
-    <script src="{{ url('assets/js/main-js.js')}}"></script>
     {{-- sweet alert js --}}
     <script src="{{ url('assets/js/sweetalert2.min.js')}}"></script>
+     <!-- main js -->
+     <script src="{{ url('assets/js/main-js.js')}}"></script>
     <!-- chart chartist js -->
     <script src="{{ url('assets/vendor/charts/chartist-bundle/chartist.min.js')}}"></script>
     <!-- sparkline js -->
