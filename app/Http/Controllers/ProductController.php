@@ -183,6 +183,10 @@ class ProductController extends Controller
             return back()->with('error','error adding category, try later! ');
         }
     }
+    function show_categories(){
+        $categories = Category::all();
+        return view('manage-categories',['categories'=>$categories]);
+    }
     // show product for editing according to their id
     function show_product($id){
         $product = Product::find($id);
