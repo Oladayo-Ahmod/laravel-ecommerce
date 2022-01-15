@@ -115,14 +115,15 @@ $.ajaxSetup({
 })
 
 // $(function(){
-    $('.delete_cat').on('click',function(){
+    $('#submit').on('submit',function(e){
+        e.preventDefault()
         var form = this;
         $.ajax({
             url : $(form).attr('action'),
             method : $(form).attr('method'),
             data : new FormData(form),
             processData : false,
-            dataType : JSON,
+            dataType : 'json',
             contentType : false,
             success : function(response){
                 if (response = 'deleted') {

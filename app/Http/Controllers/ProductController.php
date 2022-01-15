@@ -197,7 +197,7 @@ class ProductController extends Controller
     }
     function delete_cat(Request $req){
         $id = $req->cat_id;
-        return $id;
+        return response()->json(['code'=>0,'msg'=>'deleted']);
     }
     // show product for editing according to their id
     function show_product($id){
