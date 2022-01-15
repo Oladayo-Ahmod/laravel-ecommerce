@@ -134,6 +134,13 @@ $.ajaxSetup({
                     )
                     console.log(response.code)
                 }
+                else{
+                    Swal.fire(
+                        'Error!',
+                        'Error deleting category.',
+                        'danger'
+                    )
+                }
             }
         
         })

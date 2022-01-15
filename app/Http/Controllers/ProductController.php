@@ -197,7 +197,14 @@ class ProductController extends Controller
     }
     function delete_cat(Request $req){
         $id = $req->cat_id;
-        return response()->json(['code'=>0,'msg'=>'deleted']);
+        $query = Category::where('id',$id)->delete();
+        if ($query) {
+            # code...
+            return response()->json(['code'=>0,'msg'=>'deleted']);
+        }
+        else {
+            return response()->json(['code'=>0,'msg'=>'undeleted']);
+        }
     }
     // show product for editing according to their id
     function show_product($id){
