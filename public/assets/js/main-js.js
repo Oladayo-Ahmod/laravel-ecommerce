@@ -118,13 +118,11 @@ $.ajaxSetup({
     // $('#submit').on('submit',function(e){
         delete_cat = (element)=>{
             let parent = element.parentElement;
+            console.log( )
             let form = new FormData();
             let url = parent.parentElement.querySelector('form').getAttribute('action');
             let type = parent.parentElement.querySelector('form').getAttribute('method');
             let id = parent.querySelector('.cat_id').value
-            console.log(url)
-            console.log(type)
-            console.log(parent)
             form.append('cat_id',id);
             $.ajax({
                     url :url,
@@ -140,8 +138,7 @@ $.ajaxSetup({
                                 'Category deleted successfully.',
                                 'success'
                             )
-                            parent.parentElement.parentElement.querySelector('column').style.display = 'none'; // remove the data after deleting
-                            console.log(response.code)
+                            parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
                         }
                         else{
                             Swal.fire(
