@@ -119,39 +119,40 @@ $.ajaxSetup({
         delete_cat = (element)=>{
             let parent = element.parentElement;
             let form = new FormData();
-            let url = parent.parentElement.querySelector('form').attribute;
+            let url = parent.parentElement.querySelector('form').getAttribute('action');
+            let type = parent.parentElement.querySelector('form').getAttribute('method');
             let id = parent.querySelector('.cat_id').value
-            let type  = $(form).attr('method');
             console.log(url)
             console.log(type)
             console.log(parent)
             form.append('cat_id',id);
-            // $.ajax({
-            //         url :'http://localhost:8000/delete-cat',
-            //         method : 'post',
-            //         data : form,
-            //         processData : false,
-            //         dataType : 'json',
-            //         contentType : false,
-            //         success : function(response){
-            //             if (response.msg = 'deleted') {
-            //                 Swal.fire(
-            //                     'Deleted!',
-            //                     'Category deleted successfully.',
-            //                     'success'
-            //                 )
-            //                 console.log(response.code)
-            //             }
-            //             else{
-            //                 Swal.fire(
-            //                     'Error!',
-            //                     'Error deleting category.',
-            //                     'danger'
-            //                 )
-            //             }
-            //         }
+            $.ajax({
+                    url :url,
+                    method : type,
+                    data : form,
+                    processData : false,
+                    dataType : 'json',
+                    contentType : false,
+                    success : function(response){
+                        if (response.msg = 'deleted') {
+                            Swal.fire(
+                                'Deleted!',
+                                'Category deleted successfully.',
+                                'success'
+                            )
+                            parent.parentElement.parentElement.querySelector('column').style.display = 'none'; // remove the data after deleting
+                            console.log(response.code)
+                        }
+                        else{
+                            Swal.fire(
+                                'Error!',
+                                'Error deleting category.',
+                                'danger'
+                            )
+                        }
+                    }
                 
-            //     })
+                })
         
         }
         // e.preventDefault()

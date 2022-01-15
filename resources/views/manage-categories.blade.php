@@ -129,7 +129,7 @@
                                             <tr>
                                                 <td>{{$count++}}</td>
                                                 <td>{{$category['name']}} </td>
-                                                <td style="display:flex;">
+                                                <td style="display:flex;" class="column">
                                                     <a href="/edit-product/{{$category['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
