@@ -116,6 +116,7 @@ $.ajaxSetup({
 
 // $(function(){
     $('.delete_cat').on('click',function(){
+        alert('ff')
         $.ajax({
             url : $(form).attr('action'),
             method : $(form).attr('method'),
