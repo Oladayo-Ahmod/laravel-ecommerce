@@ -107,85 +107,48 @@ jQuery(document).ready(function($) {
  // }
 
 }); // AND OF JQUERY
-// delete category functionality ajax
+
+// ajax set up
 $.ajaxSetup({
     headers : {
         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
     }
 })
 
-// $(function(){
-    // $('#submit').on('submit',function(e){
-        delete_cat = (element)=>{
-            let parent = element.parentElement;
-            console.log( )
-            let form = new FormData();
-            let url = parent.parentElement.querySelector('form').getAttribute('action');
-            let type = parent.parentElement.querySelector('form').getAttribute('method');
-            let id = parent.querySelector('.cat_id').value
-            form.append('cat_id',id);
-            $.ajax({
-                    url :url,
-                    method : type,
-                    data : form,
-                    processData : false,
-                    dataType : 'json',
-                    contentType : false,
-                    success : function(response){
-                        if (response.msg = 'deleted') {
-                            Swal.fire(
-                                'Deleted!',
-                                'Category deleted successfully.',
-                                'success'
-                            )
-                            parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
-                        }
-                        else{
-                            Swal.fire(
-                                'Error!',
-                                'Error deleting category.',
-                                'danger'
-                            )
-                        }
-                    }
-                
-                })
+// delete category functionality ajax
+delete_cat = (element)=>{
+    let parent = element.parentElement;
+    console.log( )
+    let form = new FormData();
+    let url = parent.parentElement.querySelector('form').getAttribute('action');
+    let type = parent.parentElement.querySelector('form').getAttribute('method');
+    let id = parent.querySelector('.cat_id').value
+    form.append('cat_id',id);
+    $.ajax({
+            url :url,
+            method : type,
+            data : form,
+            processData : false,
+            dataType : 'json',
+            contentType : false,
+            success : function(response){
+                if (response.msg = 'deleted') {
+                    Swal.fire(
+                        'Deleted!',
+                        'Category deleted successfully.',
+                        'success'
+                    )
+                    parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
+                }
+                else{
+                    Swal.fire(
+                        'Error!',
+                        'Error deleting category.',
+                        'danger'
+                    )
+                }
+            }
         
-        }
-        // e.preventDefault()
-        // let form = new FormData();
-        // let url = $(form).attr('action');
-        // let type  = $(form).attr('method');
-        // let parent = 
-        // let cat_id = 
-        // console.log(url)
-        // console.log(type)
-        // $.ajax({
-        //     url :url,
-        //     method : type,
-        //     data : new FormData(form),
-        //     processData : false,
-        //     dataType : 'json',
-        //     contentType : false,
-        //     success : function(response){
-        //         if (response.msg = 'deleted') {
-        //             Swal.fire(
-        //                 'Deleted!',
-        //                 'Category deleted successfully.',
-        //                 'success'
-        //             )
-        //             console.log(response.code)
-        //         }
-        //         else{
-        //             Swal.fire(
-        //                 'Error!',
-        //                 'Error deleting category.',
-        //                 'danger'
-        //             )
-        //         }
-        //     }
-        
-        // })
-    // })
-    
-// })
+        })
+
+}
