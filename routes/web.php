@@ -54,6 +54,7 @@ Route::post('/profile-picture',[AdminController::class,'profile_picture']);
 Route::post('/add-category',[ProductController::class,'add_category']); // add product category
 Route::get('/manage-categories',[ProductController::class,'show_categories']); // manage product category
 Route::post('/add-product',[ProductController::class,'add_products']);
+Route::post('/delete-cat',[ProductController::class,'delete_cat'])->name('delete.cat');
 Route::get('/edit-product/{id}',[ProductController::class,'show_product']); // show product according to their id
 Route::post('/update-product',[ProductController::class,'update_products']);
 Route::get('/delete-product/{id}',[ProductController::class,'delete_product']); // show product according to their id

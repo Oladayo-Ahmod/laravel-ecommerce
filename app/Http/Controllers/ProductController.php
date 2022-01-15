@@ -195,6 +195,10 @@ class ProductController extends Controller
         return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories'));
         // return view('manage-categories',['categories'=>$categories]);
     }
+    function delete_cat(Request $req){
+        $id = $req->cat_id;
+        return $id;
+    }
     // show product for editing according to their id
     function show_product($id){
         $product = Product::find($id);

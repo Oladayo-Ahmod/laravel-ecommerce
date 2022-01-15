@@ -136,9 +136,10 @@
                                                     {{-- <a href="/delete-product/{{$category['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a>  --}}
-                                                    <form action="" method="post">
+                                                    <form action="{{route('delete.cat')}}" method="post">
+                                                        @csrf
                                                         <input type="hidden" name="cat_id" value="{{$category['id']}}">
-                                                        <a type="button" class="delete_cat">
+                                                        <a type="button" class="delete_cat" >
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a> 
                                                     </form>
