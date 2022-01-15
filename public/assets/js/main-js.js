@@ -115,35 +115,79 @@ $.ajaxSetup({
 })
 
 // $(function(){
-    $('#submit').on('submit',function(e){
-        e.preventDefault()
-        var form = this;
-        $.ajax({
-            url : $(form).attr('action'),
-            method : $(form).attr('method'),
-            data : new FormData(form),
-            processData : false,
-            dataType : 'json',
-            contentType : false,
-            success : function(response){
-                if (response.msg = 'deleted') {
-                    Swal.fire(
-                        'Deleted!',
-                        'Category deleted successfully.',
-                        'success'
-                    )
-                    console.log(response.code)
-                }
-                else{
-                    Swal.fire(
-                        'Error!',
-                        'Error deleting category.',
-                        'danger'
-                    )
-                }
-            }
+    // $('#submit').on('submit',function(e){
+        delete_cat = (element)=>{
+            let parent = element.parentElement;
+            let form = new FormData();
+            let url = parent.parentElement.querySelector('form').attribute;
+            let id = parent.querySelector('.cat_id').value
+            let type  = $(form).attr('method');
+            console.log(url)
+            console.log(type)
+            console.log(parent)
+            form.append('cat_id',id);
+            // $.ajax({
+            //         url :'http://localhost:8000/delete-cat',
+            //         method : 'post',
+            //         data : form,
+            //         processData : false,
+            //         dataType : 'json',
+            //         contentType : false,
+            //         success : function(response){
+            //             if (response.msg = 'deleted') {
+            //                 Swal.fire(
+            //                     'Deleted!',
+            //                     'Category deleted successfully.',
+            //                     'success'
+            //                 )
+            //                 console.log(response.code)
+            //             }
+            //             else{
+            //                 Swal.fire(
+            //                     'Error!',
+            //                     'Error deleting category.',
+            //                     'danger'
+            //                 )
+            //             }
+            //         }
+                
+            //     })
         
-        })
-    })
+        }
+        // e.preventDefault()
+        // let form = new FormData();
+        // let url = $(form).attr('action');
+        // let type  = $(form).attr('method');
+        // let parent = 
+        // let cat_id = 
+        // console.log(url)
+        // console.log(type)
+        // $.ajax({
+        //     url :url,
+        //     method : type,
+        //     data : new FormData(form),
+        //     processData : false,
+        //     dataType : 'json',
+        //     contentType : false,
+        //     success : function(response){
+        //         if (response.msg = 'deleted') {
+        //             Swal.fire(
+        //                 'Deleted!',
+        //                 'Category deleted successfully.',
+        //                 'success'
+        //             )
+        //             console.log(response.code)
+        //         }
+        //         else{
+        //             Swal.fire(
+        //                 'Error!',
+        //                 'Error deleting category.',
+        //                 'danger'
+        //             )
+        //         }
+        //     }
+        
+        // })
+    // })
     
 // })

@@ -138,8 +138,8 @@
                                                     </a>  --}}
                                                     <form action="{{ route('delete.cat') }}" method="post" id="submit">
                                                         @csrf
-                                                        <input type="hidden" name="cat_id" value="{{$category['id']}}">
-                                                        <button style="background: none;border:none;" type="submit" class="delete_cat" >
+                                                        <input type="hidden" class="cat_id" name="cat_id" value="{{$category['id']}}">
+                                                        <button style="background: none;border:none;" onclick="delete_cat(this)" type="button" class="delete_cat" >
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                         </button> 
                                                     </form>
