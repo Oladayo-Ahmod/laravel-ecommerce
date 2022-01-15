@@ -129,7 +129,7 @@
                                             <tr>
                                                 <td>{{$count++}}</td>
                                                 <td>{{$category['name']}} </td>
-                                                <td style="display:flex;" class="my-2">
+                                                <td style="display:flex;">
                                                     <a href="/edit-product/{{$category['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
@@ -139,7 +139,7 @@
                                                     <form action="{{ route('delete.cat') }}" method="post" id="submit">
                                                         @csrf
                                                         <input type="hidden" name="cat_id" value="{{$category['id']}}">
-                                                        <button type="submit" class="delete_cat" >
+                                                        <button style="background: none;border:none;" type="submit" class="delete_cat" >
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                         </button> 
                                                     </form>

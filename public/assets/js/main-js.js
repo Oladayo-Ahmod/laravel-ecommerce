@@ -126,13 +126,13 @@ $.ajaxSetup({
             dataType : 'json',
             contentType : false,
             success : function(response){
-                if (response = 'deleted') {
+                if (response.msg = 'deleted') {
                     Swal.fire(
                         'Deleted!',
                         'Category deleted successfully.',
                         'success'
                     )
-                    console.log(response)
+                    console.log(response.code)
                 }
             }
         
