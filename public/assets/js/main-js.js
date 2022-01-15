@@ -114,24 +114,27 @@ $.ajaxSetup({
     }
 })
 
-$(function(){
-    $.ajax({
-        url : $(form).attr('action'),
-        method : $(form).attr('method'),
-        data : new FormData(form),
-        processData : false,
-        dataType : JSON,
-        contentType : false,
-        success : function(response){
-            if (response = 'deleted') {
-                Swal.fire(
-                    'Deleted!',
-                    'Category deleted successfully.',
-                    'success'
-                )
-                console.log(response)
+// $(function(){
+    $('.delete_cat').on('click',function(){
+        $.ajax({
+            url : $(form).attr('action'),
+            method : $(form).attr('method'),
+            data : new FormData(form),
+            processData : false,
+            dataType : JSON,
+            contentType : false,
+            success : function(response){
+                if (response = 'deleted') {
+                    Swal.fire(
+                        'Deleted!',
+                        'Category deleted successfully.',
+                        'success'
+                    )
+                    console.log(response)
+                }
             }
-        }
-    
+        
+        })
     })
-})
+    
+// })

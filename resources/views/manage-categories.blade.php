@@ -133,15 +133,19 @@
                                                     <a href="/edit-product/{{$category['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
-                                                    <a href="/delete-product/{{$category['id']}}">
+                                                    {{-- <a href="/delete-product/{{$category['id']}}">
+                                                        <i class="fas fa-trash mr-2 text-danger"></i>
+                                                    </a>  --}}
+                                                    <form action="" method="post">
+                                                        <input type="hidden" name="cat_id" value="{{$category['id']}}">
+                                                        <a type="button" class="delete_cat">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a> 
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
-                                            <tr>
-                                                <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                            </tr>
+                                           
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center align-items-center">
