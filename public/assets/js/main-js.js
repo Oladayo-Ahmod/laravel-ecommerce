@@ -124,33 +124,46 @@ delete_cat = (element)=>{
     let type = parent.parentElement.querySelector('form').getAttribute('method');
     let id = parent.querySelector('.cat_id').value
     form.append('cat_id',id);
-    $.ajax({
-            url :url,
-            method : type,
-            data : form,
-            processData : false,
-            dataType : 'json',
-            contentType : false,
-            success : function(response){
-                if (response.msg = 'deleted') {
-                    Swal.fire(
-                        'Deleted!',
-                        'Category deleted successfully.',
-                        'success'
-                    )
-                    parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
+    Swal.fire({
+        title: 'Are you sure',
+        text: "you want to DELETE this product?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url :url,
+                method : type,
+                data : form,
+                processData : false,
+                dataType : 'json',
+                contentType : false,
+                success : function(response){
+                    if (response.msg = 'deleted') {
+                        Swal.fire(
+                            'Deleted!',
+                            'Category deleted successfully.',
+                            'success'
+                        )
+                        parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
+                    }
+                    else{
+                        Swal.fire(
+                            'Error!',
+                            'Error deleting category.',
+                            'danger'
+                        )
+                    }
                 }
-                else{
-                    Swal.fire(
-                        'Error!',
-                        'Error deleting category.',
-                        'danger'
-                    )
-                }
-            }
-        
-        })
-
+            
+            })
+    
+        }
+    })
+    
 }
 
 // delete product functionality ajax
