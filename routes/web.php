@@ -58,6 +58,6 @@ Route::post('/delete-cat',[ProductController::class,'delete_cat'])->name('delete
 Route::post('/delete-prd',[ProductController::class,'delete_product'])->name('delete.prd'); // delete product
 Route::get('/edit-product/{id}',[ProductController::class,'show_product']); // show product according to their id
 Route::post('/update-product',[ProductController::class,'update_products']); // update product
-Route::get('/delete-product/{id}',[ProductController::class,'delete_product']); // show product according to their id
+// Route::get('/delete-product/{id}',[ProductController::class,'delete_product']); // show product according to their id
 
 

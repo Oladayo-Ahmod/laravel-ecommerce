@@ -274,21 +274,16 @@ class ProductController extends Controller
     }
 
     // delete product functionality
-    function delete_product($id){
-        if (Session()->has('admin')) {
+    function delete_product(Request $req){
+        $id = $req->cat_id;
+        $query = Product::where('id',$id)->delete();
+        if ($query) {
             # code...
-            $product = Product::find($id);
-            if ($product->delete()){
-                return back()->with('success','Product deleted successfully!');
-            }
-            else{
-                return back()->with('error','Error deleting product!');
-            }
+            return response()->json(['code'=>0,'msg'=>'deleted']);
         }
         else {
-            return redirect('/admin');
+            return response()->json(['code'=>0,'msg'=>'undeleted']);
         }
-        
     }
     // show recent order
     function recent_order(){
