@@ -215,3 +215,9 @@ delete_product = (element)=>{
 }
 
 // add category functionality
+add_category = (element)=>{
+    let parent = element.parentElement;
+    let form = new FormData();
+    let url = parent.parentElement.querySelector('form').getAttribute('action');
+    let type = parent.parentElement.querySelector('form').getAttribute('method');
+}

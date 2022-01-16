@@ -72,11 +72,11 @@
                             </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route(add.category)}}" class="form-group" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('add.category')}}" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
                             <label for="name">Category Name</label>
                             <input type="text" class="form-control" class="cat_name" required name="name"><br>
-                            <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
+                            <button type="button" name="submit" onclick="add_category(this)" class="btn btn-primary btn-sm">Add</button>
                         </form>
                     </div>
                     <div class="modal-footer">
