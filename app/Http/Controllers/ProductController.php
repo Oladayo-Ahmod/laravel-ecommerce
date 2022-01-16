@@ -208,37 +208,50 @@ class ProductController extends Controller
     }
     // show product for editing according to their id
     function show_product($id){
-        $product = Product::find($id);
-        return view('edit-product',['product' => $product]);
+        if (Session()->has('admin')) {
+            $product = Product::find($id);
+            return view('edit-product',['product' => $product]);
+        }
+        else{
+            return redirect('/admin');
+        }
+        
     }
 
     // update product functionalities
     function update_products(Request $req){
-        // validate the input
-        $validate = $req->validate([
-            'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
-        ]);
-        $imageName = time() . '.' . $req->image->extension();
-        // store the image in the public folder
-        if(!$req->image->move(public_path('assets/images'),$imageName)){ // if images is not valid
-            return back()->with('error','error uploading image, check if it is image');
+        if (Session()->has('admin')) {
+           // validate the input
+            $validate = $req->validate([
+                'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
+            ]);
+            $imageName = time() . '.' . $req->image->extension();
+            // store the image in the public folder
+            if(!$req->image->move(public_path('assets/images'),$imageName)){ // if images is not valid
+                return back()->with('error','error uploading image, check if it is image');
+            }
+            $id = $req->id; 
+            // instantiating the product class
+            $product = Product::find($id);
+            $product->name = $req->name;
+            $product->price = $req->price;
+            $product->category = $req->category;
+            $product->description = $req->description;
+            $product->gallery = $imageName; // product image path
+            $product->quantity = $req->quantity;
+            $product->product_id = $req->product_id;
+            if($product->save()){ // if product is added
+                return back()->with('success','Product edited successfully');
+            }
+            else{
+                return back()->with('error','error editing product, try later! ');
+            }
+
         }
-        $id = $req->id; 
-        // instantiating the product class
-        $product = Product::find($id);
-        $product->name = $req->name;
-        $product->price = $req->price;
-        $product->category = $req->category;
-        $product->description = $req->description;
-        $product->gallery = $imageName; // product image path
-        $product->quantity = $req->quantity;
-        $product->product_id = $req->product_id;
-        if($product->save()){ // if product is added
-            return back()->with('success','Product edited successfully');
+        else {
+            return redirect('/admin');
         }
-        else{
-            return back()->with('error','error editing product, try later! ');
-        }
+        
     }
 
     // delete product functionality
@@ -252,6 +265,9 @@ class ProductController extends Controller
             else{
                 return back()->with('error','Error deleting product!');
             }
+        }
+        else {
+            return redirect('/admin');
         }
         
     }
