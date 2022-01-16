@@ -220,4 +220,27 @@ add_category = (element)=>{
     let form = new FormData();
     let url = parent.parentElement.querySelector('form').getAttribute('action');
     let type = parent.parentElement.querySelector('form').getAttribute('method');
+    $.ajax({
+        url :url,
+        method : type,
+        data : form,
+        processData : false,
+        dataType : 'json',
+        contentType : false,
+        success : function(response){
+            if (response.msg = 'deleted') {
+                Swal.fire(
+                    'Category added successfully.',
+                    'success'
+                )
+            }
+            else{
+                Swal.fire(
+                    'Error adding category.',
+                    'danger'
+                )
+            }
+        }
+    
+    })
 }
