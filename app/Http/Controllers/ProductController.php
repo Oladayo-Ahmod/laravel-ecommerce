@@ -147,7 +147,7 @@ class ProductController extends Controller
         $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
         $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
         $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-        return view('manage-products', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories','products'));            
+        return view('manage-products', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','products'));            
     }
 
     function add_products(Request $req){
