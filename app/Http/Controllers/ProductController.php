@@ -140,7 +140,14 @@ class ProductController extends Controller
     // display every product
     function products_all(){
         $products = Product::paginate(10);
-        return view('manage-products',['products'=> $products]);
+        $orders = DB::table('orders')->
+        leftJoin('products','orders.product_id','=','products.id')->
+        orderBy('orders.id','desc')->limit(3)->get();
+        $count_orders = DB::table('orders')->count();
+        $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
+        $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
+        $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
+        return view('manage-products', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories','products'));            
     }
 
     function add_products(Request $req){
