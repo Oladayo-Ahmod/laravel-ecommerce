@@ -181,19 +181,19 @@ class ProductController extends Controller
 
     // add category
     function add_category(Request $request){
-        if(Session::has('admin')){
+        // if(Session::has('admin')){
             $category = new Category;
             $category->name = ucfirst($request->name);
             if($category->save()){ // if product is added
-                return back()->with('success','New category added successfully');
+                return response()->json(['code' =>'1','msg'=>'success']);
             }
             else{
-                return back()->with('error','error adding category, try later! ');
+                return response()->json(['code' =>'0','msg'=>'error']);
             }
-        }
-        else {
-            return redirect('/admin');
-        }
+        // }
+        // else {
+        //     return redirect('/admin');
+        // }
        
     }
     function show_categories(){

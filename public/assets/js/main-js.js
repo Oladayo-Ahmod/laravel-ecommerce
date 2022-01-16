@@ -217,7 +217,9 @@ delete_product = (element)=>{
 // add category functionality
 add_category = (element)=>{
     let parent = element.parentElement;
+    let name = parent.querySelector('.cat_name');
     let form = new FormData();
+    form.append('name',name);
     let url = parent.parentElement.querySelector('form').getAttribute('action');
     let type = parent.parentElement.querySelector('form').getAttribute('method');
     $.ajax({
@@ -228,7 +230,7 @@ add_category = (element)=>{
         dataType : 'json',
         contentType : false,
         success : function(response){
-            if (response.msg = 'deleted') {
+            if (response.msg = 'success') {
                 Swal.fire(
                     'Category added successfully.',
                     'success'
