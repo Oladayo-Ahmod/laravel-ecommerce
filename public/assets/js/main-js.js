@@ -217,7 +217,6 @@ delete_product = (element)=>{
 // add category functionality
 add_category = (element)=>{
     let parent = element.parentElement;
-    console.log(parent)
     let name = parent.querySelector('.cat_name').value;
     let form = new FormData();
     form.append('name',name);
@@ -233,6 +232,7 @@ add_category = (element)=>{
         success : function(response){
             $('#add-category').modal('hide')
             if (response.msg = 'success') {
+                $('.cat_name').val('');
                 Swal.fire(
                     'Added',
                     'Category added successfully.',
