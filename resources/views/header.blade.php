@@ -43,7 +43,7 @@
         <button class="btn ">
             <a href="/cartlist" style="text-decoration:none;">
                     <span class="text-light">Cart</span>
-                    <span class="badge badge-pill badge-warning">{{$total_items}}</span>
+                    <span class="badge badge-pill total_items badge-warning">{{$total_items}}</span>
             </a>
         </button>
     </div>

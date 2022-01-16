@@ -9,11 +9,10 @@ $.ajaxSetup({
 add_to_cart = (element)=>{
     let parent = element.parentElement;
     let id = parent.querySelector('.product_id').value;
-    console.log(id)
+    let cart = $('.total_items').html();
     let form = new FormData();
     form.append('id',id);
     let url = parent.parentElement.querySelector('form').getAttribute('action');
-    console.log(url)
     let type = parent.parentElement.querySelector('form').getAttribute('method');
     $.ajax({
         url :url,
@@ -29,7 +28,7 @@ add_to_cart = (element)=>{
                     'Product added to cart.',
                     'success'
                 )
-                console.log(response)
+                $('.total_items').html(Number(cart) + 1);
             }
             else{
                 Swal.fire(
