@@ -243,24 +243,35 @@ class ProductController extends Controller
 
     // delete product functionality
     function delete_product($id){
-        $product = Product::find($id);
-        if ($product->delete()){
-            return back()->with('success','Product deleted successfully!');
+        if (Session()->has('admin')) {
+            # code...
+            $product = Product::find($id);
+            if ($product->delete()){
+                return back()->with('success','Product deleted successfully!');
+            }
+            else{
+                return back()->with('error','Error deleting product!');
+            }
         }
-        else{
-            return back()->with('error','Error deleting product!');
-        }
+        
     }
     // show recent order
     function recent_order(){
-        $orders = DB::table('orders')->
-        leftJoin('products','orders.product_id','=','products.id')->
-        orderBy('orders.id','desc')->limit(3)->get();
-        $count_orders = DB::table('orders')->count();
-        $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
-        $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
-        $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-        return view('dashboard', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
+        if (Session::has('admin')) {
+            $orders = DB::table('orders')->
+            leftJoin('products','orders.product_id','=','products.id')->
+            orderBy('orders.id','desc')->limit(3)->get();
+            $count_orders = DB::table('orders')->count();
+            $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
+            $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
+            $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
+            return view('dashboard', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
+
+        }
+        else {
+            return redirect('/admin');
+        }
+        
         // return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
     }
    
