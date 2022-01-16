@@ -232,12 +232,15 @@ add_category = (element)=>{
         success : function(response){
             if (response.msg = 'success') {
                 Swal.fire(
+                    'Added',
                     'Category added successfully.',
                     'success'
                 )
+                console.log(response)
             }
             else{
                 Swal.fire(
+                    'Error',
                     'Error adding category.',
                     'danger'
                 )
