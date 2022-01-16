@@ -173,13 +173,13 @@
                             <input type="number" class="form-control" required name="price">
                             <label for="description">Description</label> <br>
                             <textarea name="description" id="" rows="3" style="width: 100%;"></textarea><br>
-                            <label for="category">Category</label>
-                            <select name="" id="">
+                            <label for="category">Category</label> <br>
+                            <select name="category" id="" class="form-control">
                                 @foreach ($form_categories as $cat)
-                                <option value="{{$cat}}">{{$cat}}</option>
+                                <option value="">Choose category</option>
+                                <option value="{{$cat['name']}}">{{$cat['name']}}</option>
                                 @endforeach
                             </select>
-                            <input type="text" class="form-control" required name="category">
                             <label for="image">Product Image</label>
                             <input type="file" class="form-control" name="image"><br>
                             <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
