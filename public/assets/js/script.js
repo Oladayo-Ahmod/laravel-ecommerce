@@ -27,7 +27,9 @@ add_to_cart = (element)=>{
                     'Added',
                     'Product added to cart.',
                     'success'
-                )
+                ).then(function(){
+                    $('.checkout-btn').removeClass('d-none')
+                })
                 $('.total_items').html(Number(cart) + 1);
             }
             else{
