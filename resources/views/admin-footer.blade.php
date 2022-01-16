@@ -75,7 +75,7 @@
                         <form action="{{ route('add.category')}}" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
                             <label for="name">Category Name</label>
-                            <input type="text" class="form-control" class="cat_name" required name="name"><br>
+                            <input type="text" class="form-control cat_name" required name="name"><br>
                             <button type="button" name="submit" onclick="add_category(this)" class="btn btn-primary btn-sm">Add</button>
                         </form>
                     </div>
