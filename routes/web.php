@@ -53,10 +53,11 @@ Route::get('/dashboard',[ProductController::class,'recent_order']);
 Route::post('/profile-picture',[AdminController::class,'profile_picture']);
 Route::post('/add-category',[ProductController::class,'add_category']); // add product category
 Route::get('/manage-categories',[ProductController::class,'show_categories']); // manage product category
-Route::post('/add-product',[ProductController::class,'add_products']);
-Route::post('/delete-cat',[ProductController::class,'delete_cat'])->name('delete.cat');
+Route::post('/add-product',[ProductController::class,'add_products']); // add product
+Route::post('/delete-cat',[ProductController::class,'delete_cat'])->name('delete.cat'); // delete category
+Route::post('/delete-prd',[ProductController::class,'delete_product'])->name('delete.prd'); // delete product
 Route::get('/edit-product/{id}',[ProductController::class,'show_product']); // show product according to their id
-Route::post('/update-product',[ProductController::class,'update_products']);
+Route::post('/update-product',[ProductController::class,'update_products']); // update product
 Route::get('/delete-product/{id}',[ProductController::class,'delete_product']); // show product according to their id
 
 

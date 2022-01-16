@@ -131,7 +131,7 @@
                                                  $count = 1;   
                                                 @endphp
                                             @foreach ($products as $product)
-                                            <tr>
+                                            <tr class="delete_row">
                                                 <td>{{$count++}}</td>
                                                 <td>
                                                     <div class="m-r-10"><img src="{{url('assets/images/'.$product['gallery'])}}" alt="product" class="rounded" width="45"></div>
@@ -145,15 +145,17 @@
                                                     <a href="/edit-product/{{$product['id']}}">
                                                         <i class="fas fa-edit mr-2 text-primary"></i>
                                                     </a>
-                                                    <a href="/delete-product/{{$product['id']}}">
+                                                    <form action="{{ route('delete.prd') }}" method="post" id="submit">
+                                                        @csrf
+                                                        <input type="hidden" class="prd_id" name="prd_id" value="{{$product['id']}}">
+                                                        <button style="background: none;border:none;" onclick="delete_product(this)" type="button" class="delete_cat" >
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
-                                                    </a> 
+                                                        </button> 
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
-                                            <tr>
-                                                <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                            </tr>
+                                            
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center align-items-center">

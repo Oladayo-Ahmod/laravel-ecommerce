@@ -152,3 +152,41 @@ delete_cat = (element)=>{
         })
 
 }
+
+// delete product functionality ajax
+delete_product = (element)=>{
+    let parent = element.parentElement;
+    console.log( )
+    let form = new FormData();
+    let url = parent.parentElement.querySelector('form').getAttribute('action');
+    let type = parent.parentElement.querySelector('form').getAttribute('method');
+    let id = parent.querySelector('.prd_id').value
+    form.append('prd_id',id);
+    $.ajax({
+            url :url,
+            method : type,
+            data : form,
+            processData : false,
+            dataType : 'json',
+            contentType : false,
+            success : function(response){
+                if (response.msg = 'deleted') {
+                    Swal.fire(
+                        'Deleted!',
+                        'Product deleted successfully.',
+                        'success'
+                    )
+                    parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
+                }
+                else{
+                    Swal.fire(
+                        'Error!',
+                        'Error deleting product.',
+                        'danger'
+                    )
+                }
+            }
+        
+        })
+
+}
