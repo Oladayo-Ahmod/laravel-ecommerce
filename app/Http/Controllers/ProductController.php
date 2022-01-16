@@ -275,7 +275,7 @@ class ProductController extends Controller
 
     // delete product functionality
     function delete_product(Request $req){
-        $id = $req->cat_id;
+        $id = $req->prd_id;
         $query = Product::where('id',$id)->delete();
         if ($query) {
             # code...

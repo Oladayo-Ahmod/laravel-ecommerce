@@ -156,7 +156,6 @@ delete_cat = (element)=>{
 // delete product functionality ajax
 delete_product = (element)=>{
     let parent = element.parentElement;
-    console.log( )
     let form = new FormData();
     let url = parent.parentElement.querySelector('form').getAttribute('action');
     let type = parent.parentElement.querySelector('form').getAttribute('method');
