@@ -175,8 +175,8 @@
                             <textarea name="description" id="" rows="3" style="width: 100%;"></textarea><br>
                             <label for="category">Category</label> <br>
                             <select name="category" id="" class="form-control">
-                                @foreach ($form_categories as $cat)
                                 <option value="">Choose category</option>
+                                @foreach ($form_categories as $cat)
                                 <option value="{{$cat['name']}}">{{$cat['name']}}</option>
                                 @endforeach
                             </select>
