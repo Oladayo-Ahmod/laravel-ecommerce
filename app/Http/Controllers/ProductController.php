@@ -27,7 +27,7 @@ class ProductController extends Controller
         if (Session::has('user')) {
             $cart = new Cart;
             $cart->user_id = $req->session()->get('user')['id'];
-            $cart->product_id = $req->cart;
+            $cart->product_id = $req->id;
             $cart->save();
             return response()->json(['code'=>'1','msg'=>'success']);
 
