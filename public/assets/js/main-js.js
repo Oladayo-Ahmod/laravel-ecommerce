@@ -211,8 +211,7 @@ delete_product = (element)=>{
             
             })
         }
-    })
-        
-    
-
+    })      
 }
+
+// add category functionality

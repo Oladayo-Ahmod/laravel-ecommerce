@@ -66,16 +66,16 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Product</h5>
+                        <h5 class="modal-title">Add Category</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/add-category" class="form-group" method="post" enctype="multipart/form-data">
+                        <form action="{{ route(add.category)}}" class="form-group" method="post" enctype="multipart/form-data">
                             @csrf
                             <label for="name">Category Name</label>
-                            <input type="text" class="form-control" required name="name"><br>
+                            <input type="text" class="form-control" class="cat_name" required name="name"><br>
                             <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
                         </form>
                     </div>

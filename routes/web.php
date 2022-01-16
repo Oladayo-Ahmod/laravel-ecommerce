@@ -51,7 +51,7 @@ Route::post('/admin',[AdminController::class,'login']);
 Route::get('/dashboard',[AdminController::class,'admin_details']);
 Route::get('/dashboard',[ProductController::class,'recent_order']);
 Route::post('/profile-picture',[AdminController::class,'profile_picture']);
-Route::post('/add-category',[ProductController::class,'add_category']); // add product category
+Route::post('/add-category',[ProductController::class,'add_category'])->name('add.category'); // add product category
 Route::get('/manage-categories',[ProductController::class,'show_categories']); // manage product category
 Route::post('/add-product',[ProductController::class,'add_products']); // add product
 Route::post('/delete-cat',[ProductController::class,'delete_cat'])->name('delete.cat'); // delete category
