@@ -37,9 +37,10 @@ Route::post('/ordernow',[ProductController::class,'order_now']);
 Route::get('/cartlist',[ProductController::class,'cartlist']);
 // Route::get('/cartlist',[UserController::class,'user_data']);
 Route::get('/checkout',[ProductController::class,'checkout']);
-Route::post('/addtocart',[ProductController::class,'cart']);
+// Route::post('/addtocart',[ProductController::class,'cart']);
 Route::get('/product/{id}',[ProductController::class,'product']);
 Route::get('/manage-products',[ProductController::class,'products_all']);
+Route::post('/addtocart',[ProductController::class,'cart'])->name('add.cart');
 // login and registration routes
 Route::view('/register','register');
 Route::view('login','login');

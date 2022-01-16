@@ -29,11 +29,11 @@ class ProductController extends Controller
             $cart->user_id = $req->session()->get('user')['id'];
             $cart->product_id = $req->cart;
             $cart->save();
-            return redirect('/');
+            return response()->json(['code'=>'1','msg'=>'success']);
 
         }
         else{
-            return redirect('/login');
+            return response()->json(['code'=>'0','msg'=>'error']);
         }
     }
 

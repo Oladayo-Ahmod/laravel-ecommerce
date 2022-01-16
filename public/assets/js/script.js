@@ -8,7 +8,7 @@ $.ajaxSetup({
 // add to cart functionality
 add_to_cart = (element)=>{
     let parent = element.parentElement;
-    let id = parent.querySelector('.cart_id').value;
+    let id = parent.querySelector('.product_id').value;
     console.log(id)
     let form = new FormData();
     form.append('id',id);
@@ -22,12 +22,10 @@ add_to_cart = (element)=>{
         dataType : 'json',
         contentType : false,
         success : function(response){
-            $('#add-category').modal('hide')
             if (response.msg = 'success') {
-                $('.cat_name').val('');
                 Swal.fire(
                     'Added',
-                    'Category added successfully.',
+                    'Product added to cart.',
                     'success'
                 )
                 console.log(response)
@@ -35,7 +33,7 @@ add_to_cart = (element)=>{
             else{
                 Swal.fire(
                     'Error',
-                    'Error adding category.',
+                    'Error adding product to cart.',
                     'danger'
                 )
             }
