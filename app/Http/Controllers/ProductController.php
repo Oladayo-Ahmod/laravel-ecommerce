@@ -144,55 +144,74 @@ class ProductController extends Controller
     }
 
     function add_products(Request $req){
+        if (Session()->has('admin')) {
         // validate the input
-        $validate = $req->validate([
-            'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
-        ]);
-        $imageName = time() . '.' . $req->image->extension();
-        // store the image in the public folder
-        if(!$req->image->move(public_path('assets/images'),$imageName)){ // if images is not valid
-            return back()->with('error','error uploading image, check if it is image');
+            $validate = $req->validate([
+                'image'=>'required|image|max:2048|mimes:jpeg,jgp,png,gif,svg',
+            ]);
+            $imageName = time() . '.' . $req->image->extension();
+            // store the image in the public folder
+            if(!$req->image->move(public_path('assets/images'),$imageName)){ // if images is not valid
+                return back()->with('error','error uploading image, check if it is image');
+            }
+            // new product id for the product
+            $product_id = 'Id'.round(microtime(true)); 
+            // instantiating the product class
+            $product = new Product;
+            $product->name = $req->name;
+            $product->price = $req->price;
+            $product->category = $req->category;
+            $product->description = $req->description;
+            $product->gallery = $imageName; // product image path
+            $product->quantity = $req->quantity;
+            $product->product_id = $product_id;
+            if($product->save()){ // if product is added
+                return back()->with('success','New product added successfully');
+            }
+            else{
+                return back()->with('error','error adding product, try later! ');
+            }    # code...
+
         }
-        // new product id for the product
-        $product_id = 'Id'.round(microtime(true)); 
-        // instantiating the product class
-        $product = new Product;
-        $product->name = $req->name;
-        $product->price = $req->price;
-        $product->category = $req->category;
-        $product->description = $req->description;
-        $product->gallery = $imageName; // product image path
-        $product->quantity = $req->quantity;
-        $product->product_id = $product_id;
-        if($product->save()){ // if product is added
-            return back()->with('success','New product added successfully');
+        else {
+            return redirect('/admin');
         }
-        else{
-            return back()->with('error','error adding product, try later! ');
-        }
+        
     }
 
     // add category
     function add_category(Request $request){
-        $category = new Category;
-        $category->name = ucfirst($request->name);
-        if($category->save()){ // if product is added
-            return back()->with('success','New category added successfully');
+        if(Session::has('admin')){
+            $category = new Category;
+            $category->name = ucfirst($request->name);
+            if($category->save()){ // if product is added
+                return back()->with('success','New category added successfully');
+            }
+            else{
+                return back()->with('error','error adding category, try later! ');
+            }
         }
-        else{
-            return back()->with('error','error adding category, try later! ');
+        else {
+            return redirect('/admin');
         }
+       
     }
     function show_categories(){
-        $categories = Category::all();
-        $orders = DB::table('orders')->
-        leftJoin('products','orders.product_id','=','products.id')->
-        orderBy('orders.id','desc')->limit(3)->get();
-        $count_orders = DB::table('orders')->count();
-        $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
-        $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
-        $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-        return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories'));
+        if(Session::has('admin')){
+            $categories = Category::all();
+            $orders = DB::table('orders')->
+            leftJoin('products','orders.product_id','=','products.id')->
+            orderBy('orders.id','desc')->limit(3)->get();
+            $count_orders = DB::table('orders')->count();
+            $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
+            $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
+            $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
+            return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories'));
+            
+        }
+        else {
+            return redirect('/admin');
+        }
         // return view('manage-categories',['categories'=>$categories]);
     }
     function delete_cat(Request $req){
