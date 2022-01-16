@@ -13,6 +13,7 @@ add_to_cart = (element)=>{
     let form = new FormData();
     form.append('id',id);
     let url = parent.parentElement.querySelector('form').getAttribute('action');
+    console.log(url)
     let type = parent.parentElement.querySelector('form').getAttribute('method');
     $.ajax({
         url :url,
