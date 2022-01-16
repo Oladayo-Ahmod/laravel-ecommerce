@@ -126,7 +126,7 @@ delete_cat = (element)=>{
     form.append('cat_id',id);
     Swal.fire({
         title: 'Are you sure',
-        text: "you want to DELETE this product?",
+        text: "you want to DELETE this category?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
