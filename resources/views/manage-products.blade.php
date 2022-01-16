@@ -172,7 +172,7 @@
                             <label for="price"> Price</label>
                             <input type="number" class="form-control" required name="price">
                             <label for="description">Description</label> <br>
-                            <textarea name="description" id="" rows="3" style="width: 100%;"></textarea><br>
+                            <textarea name="description" class="form-control" id="" rows="3" style="width: 100%;"></textarea><br>
                             <label for="category">Category</label> <br>
                             <select name="category" id="" class="form-control">
                                 <option value="">Choose category</option>

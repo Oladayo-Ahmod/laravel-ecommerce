@@ -11,7 +11,7 @@
         <div class="carousel-inner" role="listbox">
          @foreach ($products as $product)
             
-             <div class="carousel-item {{$product['id'] == 1 ? 'active': '' }}">
+             <div class="carousel-item {{$product['id'] == 3 ? 'active': '' }}">
                  <a href="product/{{$product['id']}}">
                  <img src="{{ url('assets/images')}}/{{$product['gallery']}}" class="product_images" height="320px" class="img-top" alt="image slide">
                  <div class="carousel-caption d-none d-md-block">
