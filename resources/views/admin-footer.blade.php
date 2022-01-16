@@ -47,6 +47,11 @@
                             <label for="description">Description</label> <br>
                             <textarea name="description" id="" rows="3" style="width: 100%;"></textarea><br>
                             <label for="category">Category</label>
+                            <select name="" id="">
+                                @foreach ($form_categories as $cat)
+                                <option value="{{$cat}}">{{$cat}}</option>
+                                @endforeach
+                            </select>
                             <input type="text" class="form-control" required name="category">
                             <label for="image">Product Image</label>
                             <input type="file" class="form-control" name="image"><br>

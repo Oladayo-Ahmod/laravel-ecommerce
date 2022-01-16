@@ -140,6 +140,7 @@ class ProductController extends Controller
     // display every product
     function products_all(){
         $products = Product::paginate(10);
+        $form_categories = Category::all();
         $orders = DB::table('orders')->
         leftJoin('products','orders.product_id','=','products.id')->
         orderBy('orders.id','desc')->limit(3)->get();
@@ -147,7 +148,7 @@ class ProductController extends Controller
         $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
         $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
         $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-        return view('manage-products', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','products'));            
+        return view('manage-products', compact('orders','count_orders','orders_delivered','form_categories','orders_inprogress','orders_cancelled','products'));            
     }
 
     function add_products(Request $req){
@@ -185,7 +186,7 @@ class ProductController extends Controller
         }
         
     }
-
+    
     // add category
     function add_category(Request $request){
         // if(Session::has('admin')){
