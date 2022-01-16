@@ -1,6 +1,7 @@
 @extends('admin-master')
 @section('manage_products')
 <div class="dashboard-wrapper">
+    
     <div class="dashboard-ecommerce">
         <div class="container-fluid dashboard-content ">
             <!-- ============================================================== -->
