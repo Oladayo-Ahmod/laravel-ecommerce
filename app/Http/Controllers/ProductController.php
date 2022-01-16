@@ -150,7 +150,7 @@ class ProductController extends Controller
         $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
         return view('manage-products', compact('orders','count_orders','orders_delivered','form_categories','orders_inprogress','orders_cancelled','products'));            
     }
-
+    // add product
     function add_products(Request $req){
         if (Session()->has('admin')) {
         // validate the input
