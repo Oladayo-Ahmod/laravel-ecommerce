@@ -65,8 +65,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                @ph
-                                                p
+                                                @php
                                                  $count = 1;   
                                                 @endphp
                                             @foreach ($categories as $category)
