@@ -233,11 +233,13 @@ add_category = (element)=>{
             $('#add-category').modal('hide')
             if (response.msg = 'success') {
                 $('.cat_name').val('');
-                Swal.fire(
-                    'Added',
-                    'Category added successfully.',
-                    'success'
-                )
+                Swal.fire({
+                    showConfirmButton: false,
+                    timer: 1500,
+                    title :'Added',
+                    text : 'Category added successfully.',
+                    icon :'success'
+                })
                 console.log(response)
             }
             else{
