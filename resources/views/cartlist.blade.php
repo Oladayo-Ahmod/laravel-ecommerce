@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-3">
-                <a href="removecart/{{$item->cart_id}}" class="btn btn-warning">Remove</a>
+                <button type="button" onclick="remove_cart(this)">Remove</button>
             </div>
            @endforeach
     </div>
