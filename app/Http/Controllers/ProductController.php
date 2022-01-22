@@ -72,7 +72,7 @@ class ProductController extends Controller
     function remove($id){
         if (Session::has('user')) {
             Cart::destroy($id);
-            return redirect('/cartlist');
+            return response()->json(['code'=>'1','msg'=>'success']);
         }
         else{
             return redirect('/');

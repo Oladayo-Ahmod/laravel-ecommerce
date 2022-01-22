@@ -22,7 +22,11 @@
                 </div>
             </div>
             <div class="col-md-4 mb-3">
-                <button type="button" onclick="remove_cart(this)">Remove</button>
+                <form action="{{route('remove.cart')}}" method="POST">
+                    @csrf
+                    <input type="hidden" class="product_id" name="cart" value="{{$item->id}}">
+                    <button type="button" @if(Session::has('user')) onclick="remove_cart(this)" @else onclick="window.location.href='/login'"  @endif class=" my-3 btn btn-warning">Remove product</button><br>
+                </form>
             </div>
            @endforeach
     </div>
