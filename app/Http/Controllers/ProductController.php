@@ -72,7 +72,7 @@ class ProductController extends Controller
     function remove(Request $req){
         if (Session::has('user')) {
             $id = $req->id;
-            Cart::where('id',$id)->delete();
+            Cart::destroy($id);
             return response()->json(['code'=>$id,'msg'=>'success']);
         }
         else{
