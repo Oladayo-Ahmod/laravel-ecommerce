@@ -4,8 +4,9 @@
     <h3>Cart List</h3>
 
     <a href="/checkout" class="btn btn-success">Order Now</a>
-    <div class="row my-3 shadow-lg rounded justify-content-center align-items-center">   
             @foreach ($products as $item)
+    <div class="row my-3 shadow-lg rounded justify-content-center align-items-center">   
+
             <div class="col-md-4">
                 <div class="card my-3 shadow cart-container">
                     <a href="/detail/{{$item->id}}">
@@ -28,9 +29,9 @@
                     <input type="hidden" class="product_id" name="cart" value="{{$item->cart_id}}">
                     <button type="button" @if(Session::has('user')) onclick="remove_cart(this)" @else onclick="window.location.href='/login'"  @endif class=" my-3 btn btn-danger">Remove product</button><br>
                 </form>
-            </div>
-           @endforeach
     </div>
+</div>
+           @endforeach
     <a href="/checkout" class="btn btn-success">Order Now</a>
 </div>
 @endsection
