@@ -25,7 +25,7 @@
                 <form action="{{route('remove.cart')}}" method="POST">
                     @csrf
                     <input type="hidden" class="product_id" name="cart" value="{{$item->id}}">
-                    <button type="button" @if(Session::has('user')) onclick="remove_cart(this)" @else onclick="window.location.href='/login'"  @endif class=" my-3 btn btn-warning">Remove product</button><br>
+                    <button type="button" @if(Session::has('user')) onclick="remove_cart(this)" @else onclick="window.location.href='/login'"  @endif class=" my-3 btn btn-danger">Remove product</button><br>
                 </form>
             </div>
            @endforeach

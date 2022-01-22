@@ -69,10 +69,11 @@ class ProductController extends Controller
     }
     
     // remove product from the cart
-    function remove($id){
+    function remove(Request $req){
         if (Session::has('user')) {
+            $id = $req->product_id;
             Cart::destroy($id);
-            return response()->json(['code'=>'1','msg'=>'success']);
+            return response()->json(['code'=>$id,'msg'=>'success']);
         }
         else{
             return redirect('/');
