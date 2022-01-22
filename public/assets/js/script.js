@@ -29,6 +29,7 @@ add_to_cart = (element)=>{
                     'success'
                 ).then(function(){
                     $('.checkout-btn').removeClass('d-none')
+                    $('#product-image').css('height','390px')
                 })
                 $('.total_items').html(Number(cart) + 1);
             }

@@ -6,8 +6,8 @@
                 {{-- <a href="product/{{$product['id']}}"> --}}
                     <div class=" product shadow-lg rounded bg-secondary product-details"  style=" border-color:rgb(230, 230, 248);">
                         <div class="image-hover">
-                            <img class="card-img-top shadow rounded" src="{{ url('assets/images')}}/{{$product['gallery']}}"
-                            alt="trending product" style="object-fit: cover; height : 390px; min-height : 280px;">
+                            <img class="card-img-top shadow rounded" id="product-image"src="{{ url('assets/images')}}/{{$product['gallery']}}"
+                            alt="trending product" style="object-fit: cover; height : 355px; min-height : 280px;">
                         </div>
                     </div>
             </div>
