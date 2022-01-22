@@ -49,8 +49,6 @@ add_to_cart = (element)=>{
 remove_cart = (element)=>{
     let parent = element.parentElement;
     let id = parent.querySelector('.product_id').value;
-    console.log(parent)
-    console.log(id)
     let cart = $('.total_items').html();
     let form = new FormData();
     form.append('id',id);
@@ -70,9 +68,10 @@ remove_cart = (element)=>{
                     'Product removed from cart.',
                     'warning'
                 ).then(function(){
+                    (parent.parentElement.parentElement.style.display = 'none'
                     $('.total_items').html(Number(cart) - 1);
                 })
-                console.log(response)
+                // console.log(response)
                
             }
             else{

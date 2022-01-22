@@ -5,7 +5,7 @@
 
     <a href="/checkout" class="btn btn-success">Order Now</a>
             @foreach ($products as $item)
-    <div class="row my-3 shadow-lg rounded justify-content-center align-items-center">   
+    <div class="row my-3 shadow-lg rounded justify-content-center align-items-center" id="cart-container">   
 
             <div class="col-md-4">
                 <div class="card my-3 shadow cart-container">
