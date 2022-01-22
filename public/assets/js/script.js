@@ -68,11 +68,11 @@ remove_cart = (element)=>{
                     'Product removed from cart.',
                     'warning'
                 ).then(function(){
-                    (parent.parentElement.parentElement.style.display = 'none'
+                   
                     $('.total_items').html(Number(cart) - 1);
                 })
                 // console.log(response)
-               
+                parent.parentElement.parentElement.style.display = 'none'
             }
             else{
                 Swal.fire(
