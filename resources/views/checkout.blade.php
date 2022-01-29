@@ -43,7 +43,7 @@
                         @foreach ($products as $product)
                         <input type="hidden" name="metadata" value="{{ json_encode($array = ['email' =>$user_data['email'],
                         'first_name' => $user_data['first_name'],'last_name' => $user_data['last_name'],
-                         'user_id'=>$user_data['id'],'product_id'=>$product->id, 'address' => $user_data['address']]) }}">
+                         'user_id'=>$user_data['id'],'product_id'=>$product->id, 'quantity'=> '1', 'address' => $user_data['address']]) }}">
                          @endforeach
                           {{-- For other necessary things you want to add to your payload. it is optional though --}}
                         <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}

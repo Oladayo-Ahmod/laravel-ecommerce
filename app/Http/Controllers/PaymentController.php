@@ -22,6 +22,7 @@ class PaymentController extends Controller
     {
         try{
             return Paystack::getAuthorizationUrl()->redirectNow();
+        
         }catch(\Exception $e) {
             return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
         }        
@@ -34,9 +35,10 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
+        dd($paymentDetails);
         $order = new Order;
         $order->first_name = $paymentDetails['data']['metadata']['first_name'];
-        $order->last_name = $paymentDetails['data']['metadata']['last_name'];
+        $order->last_name = $paymentDetails['data']['metadata']['last_name']; 
         $order->status = $paymentDetails['message'];
         $order->address = $paymentDetails['data']['metadata']['address'];
         $order->user_id = $paymentDetails['data']['metadata']['user_id'];
