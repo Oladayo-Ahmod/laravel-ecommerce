@@ -37,7 +37,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-5 error-message">
                     @if(Session::has('payment_success'))
-                    <div class="alert  text-white" style="background-color:#fff0fd;">
+                    <div class="alert  text-white" style="background-color:#899da5;">
                         {{Session::get('payment_success')}}
                     </div>
                     @endif
