@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Paystack;
 use App\Models\Order; 
 use App\Models\Cart;
+use App\Models\Product;
 
 class PaymentController extends Controller
 {
@@ -35,7 +36,6 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
-        dd($paymentDetails);
         $order = new Order;
         $order->first_name = $paymentDetails['data']['metadata']['first_name'];
         $order->last_name = $paymentDetails['data']['metadata']['last_name']; 
@@ -46,8 +46,14 @@ class PaymentController extends Controller
         $order->payment_status = $paymentDetails['data']['status'];
         $order->delivery_status = "in progress";
         $order->payment_method = $paymentDetails['data']['channel'];
+        $order->amount = $paymentDetails['data']['amount'];
         if($order->save()){
-            Cart::where('product_id',$paymentDetails['data']['metadata']['product_id'])->delete();
+            Cart::where('product_id',$paymentDetails['data']['metadata']['product_id'])->delete(); // delete from the cart
+             // update the product quantity
+            $product = Product::find($paymentDetails['data']['metadata']['product_id']);
+            $product->decrement('quantity',$paymentDetails['data']['metadata']['quantity']);
+            $product->save();
+            
             // return back()->with('payment_success','You have successfully made payment for the product(s)');
             return redirect('/')->with('payment_success','You have successfully made payment for the product(s). You can continue shopping.');
         }
