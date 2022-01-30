@@ -1,4 +1,4 @@
-@extends('master')
+@extends('../master')
 @section('content')
     <div class="container mt-3">
     <div class="row justify-content-center align-items-center">
