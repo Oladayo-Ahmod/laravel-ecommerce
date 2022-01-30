@@ -65,4 +65,8 @@ Route::post('/update-product',[ProductController::class,'update_products']); // 
 // Google, facebook and github login routes
 
 Auth();
-Route::get('login/google', [UserController::class,'redirectToGoogle'])->name('login.google');
+Route::get('login/google', [UserController::class,'redirectToGoogle'])->name('login.google'); // google login
+Route::get('login/google/callback', [UserController::class,'redirectToGoogle']); // google callback
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
