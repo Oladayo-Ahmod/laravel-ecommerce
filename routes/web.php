@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 /*
@@ -64,9 +65,16 @@ Route::post('/update-product',[ProductController::class,'update_products']); // 
 
 // Google, facebook and github login routes
 
-Auth();
-Route::get('login/google', [UserController::class,'redirectToGoogle'])->name('login.google'); // google login
-Route::get('login/google/callback', [UserController::class,'redirectToGoogle']); // google callback
+// Auth();
+// google routes
+Route::get('login/google', [LoginController::class,'redirectToGoogle'])->name('login.google'); // google login
+Route::get('login/google/callback', [LoginController::class,'redirectToGoogle']); // google callback
+// facebook routes
+Route::get('login/facebook', [LoginController::class,'redirectToFacebook'])->name('login.facebook'); // facebook login
+Route::get('login/facebook/callback', [LoginController::class,'redirectToFacebook']); // facebook callback
+// google routes
+Route::get('login/github', [LoginController::class,'redirectToGoogle'])->name('login.github'); // github login
+Route::get('login/google/callback', [LoginController::class,'redirectToGithub']); // github callback
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
