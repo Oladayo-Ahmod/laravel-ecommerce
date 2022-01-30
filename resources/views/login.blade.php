@@ -22,6 +22,11 @@
                        </ul>
                    </div> 
                 @endif
+                <form action="{{route('login')}}" class="form-group my-3">
+                    <a href="{{route('login.facebook')}}" class="btn btn-primary">Login with Facebook</a>
+                    <a href="{{route('login.google')}}" class="btn btn-danger">Login with Google</a>
+                    <a href="{{route('login.github')}}" class="btn btn-primary">Login with Github</a>
+                </form>
                 <form class="form-group" enctype="multipart/form-data" method="POST" action="/login">
                     @csrf
                     <label for="email">Email</label>

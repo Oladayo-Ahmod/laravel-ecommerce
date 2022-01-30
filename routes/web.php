@@ -5,7 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
-
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,4 +62,7 @@ Route::get('/edit-product/{id}',[ProductController::class,'show_product']); // s
 Route::post('/update-product',[ProductController::class,'update_products']); // update product
 // Route::get('/delete-product/{id}',[ProductController::class,'delete_product']); // show product according to their id
 
+// Google, facebook and github login routes
 
+Auth();
+Route::get('login/google', [UserController::class,'redirectToGoogle'])->name('login.google');
