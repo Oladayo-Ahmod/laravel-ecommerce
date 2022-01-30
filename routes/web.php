@@ -32,7 +32,7 @@ Route::get('/admin-logout', function () {
 Route::post('/pay', [PaymentController::class,'redirectToGateway'])->name('pay');
 Route::get('/payment/callback', [PaymentController::class,'handleGatewayCallback']);
 // products routes
-Route::get('/',[ProductController::class,'index']);
+Route::get('/home',[ProductController::class,'index']);
 Route::get('/search',[ProductController::class,'search_products']);
 Route::post('/removecart',[ProductController::class,'remove'])->name('remove.cart');
 Route::post('/ordernow',[ProductController::class,'order_now']);
@@ -45,9 +45,9 @@ Route::get('/manage-products',[ProductController::class,'products_all']);
 Route::post('/addtocart',[ProductController::class,'cart'])->name('add.cart');
 // login and registration routes
 Route::view('/register','register');
-Route::view('login','login');
+Route::view('/user-login','login');
 Route::post('/register',[UserController::class,'register']);
-Route::post('/login',[UserController::class,'login']);
+Route::post('/user-login',[UserController::class,'login']);
 // admin routes
 Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin',[AdminController::class,'login']);

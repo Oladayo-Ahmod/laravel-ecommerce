@@ -36,8 +36,8 @@
                 </div>
             </li>
             @else
-            <li class="nav-link redirect-links"><a href="/login">login</a></li>
-            <li class="nav-link redirect-links"><a href="/register">register</a></li>
+            <li class="nav-link redirect-links"><a href="/user-login">login</a></li>
+            <li class="nav-link redirect-links"><a href="/user-register">register</a></li>
             @endif
         </ul>
         <button class="btn ">
