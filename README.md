@@ -9,8 +9,18 @@
  -->
 ## About The Ecommerce
 
-This ecommerce app is an ideal ecommerce suitable for various online shoppings developed with laravel.
+This <a href="https://sleepy-woodland-37644.herokuapp.com/" target="_blank">ecommerce </a>app is an ideal ecommerce suitable for various online shoppings developed with laravel.
 
+## Usage
+User login details
+    email : newuser@gmail.com
+    password : olami
+    ##
+    Admin login details 
+        email : oladayoahmod112@gmail.com
+        password : olami
+        Admin login Url
+        <a href="https://sleepy-woodland-37644.herokuapp.com/admin" target="_blank">Admin </a>
 ## Credit
 
 If you find this to be useful in one way or the other, do not forget to give a star.
