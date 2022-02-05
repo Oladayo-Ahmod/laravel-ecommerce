@@ -1,4 +1,4 @@
-<p align="center"><a href="https://sleepy-woodland-37644.herokuapp.com/" target="_blank"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fe-commerce&psig=AOvVaw2DQaArR1hpQ_Z7HyseRGky&ust=1644118313705000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPij1ZHQ5_UCFQAAAAAdAAAAABAJ" width="400"></a></p>
+<p align="center"><a href="https://sleepy-woodland-37644.herokuapp.com/" target="_blank"><img src="https://www.shutterstock.com/image-photo/omni-channel-technology-online-retail-business-1564080871" width="400"></a></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
