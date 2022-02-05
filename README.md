@@ -14,15 +14,19 @@ This <a href="https://sleepy-woodland-37644.herokuapp.com/" target="_blank">ecom
 ## Usage
 
 User login details
-    email : newuser@gmail.com
-    password : olami
+email : newuser@gmail.com
+
+password : olami
     
 ##
 Admin login details 
 
 email : oladayoahmod112@gmail.com
+
 password : olami
+
 Admin login Url
+
 <a href="https://sleepy-woodland-37644.herokuapp.com/admin" target="_blank">Admin </a>
 
 ## Credit
