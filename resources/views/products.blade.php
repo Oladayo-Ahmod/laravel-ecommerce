@@ -22,7 +22,7 @@
                     <form action="{{route('add.cart')}}" method="POST">
                         @csrf
                         <input type="hidden" class="product_id" name="cart" value="{{$product['id']}}">
-                        <button type="button" @if(Session::has('user')) onclick="add_to_cart(this)" @else onclick="window.location.href='/login'"  @endif class=" my-3 btn btn-warning">Add to cart</button><br>
+                        <button type="button" @if(Session::has('user')) onclick="add_to_cart(this)" @else onclick="window.location.href='/login'"  @endif class="add-to-cart-btn my-3 btn btn-warning">Add to cart</button><br>
                     </form>
                     <a href="/checkout" class="btn d-none checkout-btn btn-success">Proceed to checkout</a>
                 </div>
