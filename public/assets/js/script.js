@@ -8,6 +8,8 @@ $.ajaxSetup({
 // add to cart functionality
 add_to_cart = (element)=>{
     $('.add-to-cart-btn').attr('disabled',true)
+    $('.add-to-cart-btn').removeClass('btn-warning')
+    $('.add-to-cart-btn').addClass('btn-secondary')
     let parent = element.parentElement;
     let id = parent.querySelector('.product_id').value;
     let cart = $('.total_items').html();
@@ -31,6 +33,8 @@ add_to_cart = (element)=>{
                 ).then(function(){
                     $('.checkout-btn').removeClass('d-none')
                     $('.add-to-cart-btn').attr('disabled',false)
+                    $('.add-to-cart-btn').removeClass('btn-secondary')
+                    $('.add-to-cart-btn').addClass('btn-warning')
                     $('#product-image').css('height','390px')
                 })
                 $('.total_items').html(Number(cart) + 1);
@@ -42,6 +46,8 @@ add_to_cart = (element)=>{
                     'danger'
                 )
                     $('.add-to-cart-btn').attr('disabled',false)
+                    $('.add-to-cart-btn').removeClass('btn-secondary')
+                    $('.add-to-cart-btn').addClass('btn-warning')
             }
         }
     
