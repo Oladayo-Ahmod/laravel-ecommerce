@@ -315,6 +315,30 @@ class ProductController extends Controller
         
         // return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
     }
+
+    // show all orders
+     function show_orders(){
+        if (Session::has('admin')) {
+            $orders = DB::table('orders')->
+            leftJoin('products','orders.product_id','=','products.id')->
+            orderBy('orders.id','desc')->limit(3)->get();
+            $allorders = DB::table('orders')->
+            leftJoin('products','orders.product_id','=','products.id')->
+            orderBy('orders.id','desc')->paginate(10)->get();
+            $count_orders = DB::table('orders')->count();
+            $form_categories = Category::all();
+            $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
+            $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
+            $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
+            return view('dashboard', compact('orders','allorders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','form_categories'));
+
+        }
+        else {
+            return redirect('/admin');
+        }
+        
+        // return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
+    }
    
 }
     
