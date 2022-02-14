@@ -339,6 +339,11 @@ class ProductController extends Controller
         
         // return view('manage-categories', compact('orders','count_orders','orders_delivered','orders_inprogress','orders_cancelled'));
     }
+
+    // update order functionalities
+    function update_orders(Request $req){
+        return $req;
+    }
    
 }
     

@@ -61,6 +61,7 @@ Route::post('/delete-prd',[ProductController::class,'delete_product'])->name('de
 Route::get('/edit-product/{id}',[ProductController::class,'show_product']); // show product according to their id
 Route::post('/update-product',[ProductController::class,'update_products']); // update product
 Route::get('/customers-orders',[ProductController::class,'show_orders']);  // show orders
+Route::post('/update_order',[ProductController::class,'update_order'])->name('order.update') // update order
 // Route::get('/delete-product/{id}',[ProductController::class,'delete_product']); // show product according to their id
 
 

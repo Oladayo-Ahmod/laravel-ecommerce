@@ -88,23 +88,23 @@
                                                 <td>{{$order->last_name}} </td>
                                                 <td>{{$order->delivery_status}} </td>
                                                 <td>
-                                                    <input type="hidden" name="" class="order_id" value="{{$order->id}}">
-                                                    <input type="hidden" name="" class="user_id" value="{{$order->user_id}}">
-                                                    <select class="form-control" onchange="update_orders(this.value)" name="" id="">
-                                                        <option value="completed">Order Completed</option>
-                                                        <option value="progress">Order In Progress</option>
-                                                        <option value="cancelled">Order Canceled</option>
-                                                    </select>
+                                                    <form action="{{ route('update.order') }}" method="post" id="submit">
+                                                        @csrf
+                                                        <input type="hidden" name="" class="order_id" value="{{$order->id}}">
+                                                        <input type="hidden" name="" class="user_id" value="{{$order->user_id}}">
+                                                        <select class="form-control" onchange="update_orders(this)" name="" id="">
+                                                            <option value="completed">Order Completed</option>
+                                                            <option value="progress">Order In Progress</option>
+                                                            <option value="cancelled">Order Canceled</option>
+                                                        </select>
+                                                        <i class="fas fa-trash mr-2 text-danger"></i>
+                                                        </button> 
+                                                    </form>
+                                                   
                                                     {{-- <a href="/delete-product/{{$category['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a>  --}}
-                                                    {{-- <form action="{{ route('delete.order') }}" method="post" id="submit">
-                                                        @csrf
-                                                        <input type="hidden" class="cat_id" name="cat_id" value="{{$order->id}}">
-                                                        <button style="background: none;border:none;" onclick="delete_cat(this)" type="button" class="delete_cat" >
-                                                        <i class="fas fa-trash mr-2 text-danger"></i>
-                                                        </button> 
-                                                    </form> --}}
+                                                   
                                                 </td>
                                             </tr>
                                             @endforeach

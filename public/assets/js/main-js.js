@@ -257,11 +257,11 @@ add_category = (element)=>{
 // update orders functionalities
 update_orders=(el)=>{
     let parent = el.parentElement
-    console.log(parent)
-    let user_id = document.querySelector
+    let user_id = parent.querySelector('.user_id').value
+    let order_id = parent.querySelector('.order_id').value
     Swal.fire({
         title: 'Are you sure',
-        text: `You want to set this order to ${el}`,
+        text: `You want to update this order to <i> ${el.value} </i>`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
