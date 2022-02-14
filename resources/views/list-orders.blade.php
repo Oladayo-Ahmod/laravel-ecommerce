@@ -78,6 +78,7 @@
                                                 @endphp
                                             @foreach ($allorders as $order)
                                             <tr class="delete_row">
+                                        
                                                 <td>{{$count++}}</td>
                                                 <td>{{$order->product_id}} </td>
                                                 <td>{{$order->amount}} </td>
@@ -86,7 +87,9 @@
                                                 <td>{{$order->first_name}} </td>
                                                 <td>{{$order->last_name}} </td>
                                                 <td>{{$order->delivery_status}} </td>
-                                                <td >
+                                                <td>
+                                                    <input type="hidden" name="" class="order_id" value="{{$order->id}}">
+                                                    <input type="hidden" name="" class="user_id" value="{{$order->user_id}}">
                                                     <select class="form-control" onchange="update_orders(this.value)" name="" id="">
                                                         <option value="completed">Order Completed</option>
                                                         <option value="progress">Order In Progress</option>

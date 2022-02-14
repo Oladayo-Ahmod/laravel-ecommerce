@@ -214,7 +214,7 @@ delete_product = (element)=>{
     })      
 }
 
-// add category functionality
+// add categor)y functionality
 add_category = (element)=>{
     let parent = element.parentElement;
     let name = parent.querySelector('.cat_name').value;
@@ -254,3 +254,48 @@ add_category = (element)=>{
     })
 }
 
+// update orders functionalities
+update_orders=(el)=>{
+    let parent = el.parentElement
+    console.log(parent)
+    let user_id = document.querySelector
+    Swal.fire({
+        title: 'Are you sure',
+        text: `You want to set this order to ${el}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url :url,
+                method : type,
+                data : form,
+                processData : false,
+                dataType : 'json',
+                contentType : false,
+                success : function(response){
+                    if (response.msg = 'deleted') {
+                        Swal.fire(
+                            'Deleted!',
+                            'Category deleted successfully.',
+                            'success'
+                        )
+                        parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
+                    }
+                    else{
+                        Swal.fire(
+                            'Error!',
+                            'Error deleting category.',
+                            'danger'
+                        )
+                    }
+                }
+            
+            })
+    
+        }
+    })
+}
