@@ -342,7 +342,7 @@ class ProductController extends Controller
 
     // update order functionalities
     function update_orders(Request $req){
-        return $req;
+        return response()->json($req);
     }
    
 }

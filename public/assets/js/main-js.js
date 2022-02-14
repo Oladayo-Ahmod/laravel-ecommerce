@@ -257,8 +257,15 @@ add_category = (element)=>{
 // update orders functionalities
 update_orders=(el)=>{
     let parent = el.parentElement
+    let url = parent.parentElement.querySelector('form').getAttribute('action');
+    let type = parent.parentElement.querySelector('form').getAttribute('method');
+    console.log(url)
     let user_id = parent.querySelector('.user_id').value
     let order_id = parent.querySelector('.order_id').value
+    let form = new FormData();
+    form.append('status',el.value)
+    form.append('user_id',user_id)
+    form.append('order_id',order_id)
     Swal.fire({
         title: 'Are you sure',
         text: `You want to update this order to <i> ${el.value} </i>`,
@@ -277,18 +284,19 @@ update_orders=(el)=>{
                 dataType : 'json',
                 contentType : false,
                 success : function(response){
-                    if (response.msg = 'deleted') {
+                    console.log(response)
+                    if (response.msg = 'updated') {
                         Swal.fire(
-                            'Deleted!',
-                            'Category deleted successfully.',
+                            'Updated!',
+                            'Order updated successfully.',
                             'success'
                         )
-                        parent.parentElement.parentElement.parentElement.querySelector('.delete_row').style.display = 'none'; // remove the row after deleting
                     }
+                   
                     else{
                         Swal.fire(
                             'Error!',
-                            'Error deleting category.',
+                            'Error updating order.',
                             'danger'
                         )
                     }

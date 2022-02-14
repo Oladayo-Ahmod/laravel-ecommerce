@@ -88,7 +88,7 @@
                                                 <td>{{$order->last_name}} </td>
                                                 <td>{{$order->delivery_status}} </td>
                                                 <td>
-                                                    <form action="{{ route('update.order') }}" method="post" id="submit">
+                                                    <form action="{{ route('order.update') }}" method="post" id="submit">
                                                         @csrf
                                                         <input type="hidden" name="" class="order_id" value="{{$order->id}}">
                                                         <input type="hidden" name="" class="user_id" value="{{$order->user_id}}">
@@ -97,8 +97,7 @@
                                                             <option value="progress">Order In Progress</option>
                                                             <option value="cancelled">Order Canceled</option>
                                                         </select>
-                                                        <i class="fas fa-trash mr-2 text-danger"></i>
-                                                        </button> 
+                                                       
                                                     </form>
                                                    
                                                     {{-- <a href="/delete-product/{{$category['id']}}">
