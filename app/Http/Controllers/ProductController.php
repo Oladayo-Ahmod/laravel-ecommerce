@@ -324,7 +324,7 @@ class ProductController extends Controller
             orderBy('orders.id','desc')->limit(3)->get();
             $allorders = DB::table('orders')->
             leftJoin('products','orders.product_id','=','products.id')->
-            orderBy('orders.id','desc')->paginate(10)->get();
+            orderBy('orders.id','desc')->paginate(10);
             $count_orders = DB::table('orders')->count();
             $form_categories = Category::all();
             $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();

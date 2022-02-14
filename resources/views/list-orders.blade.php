@@ -1,6 +1,7 @@
 @extends('admin-master')
 @section('manage-categories')
 <div class="dashboard-wrapper">
+
     <div class="dashboard-ecommerce">
         <div class="container-fluid dashboard-content ">
             <!-- ============================================================== -->
@@ -61,8 +62,11 @@
                                         <thead class="bg-light">
                                             <tr class="border-0">
                                                 <th class="border-0">#</th>
-                                                <th class="border-0">Category Name</th>
-                                                <th class="border-0">Action</th>
+                                                <th class="border-0">Total Orders</th>
+                                                <th class="border-0">Orders In Progress</th>
+                                                <th class="border-0">Completed Orders</th>
+                                                <th class="border-0">Cancelled Orders</th>
+                                                <th class="border-0">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
