@@ -62,10 +62,13 @@
                                         <thead class="bg-light">
                                             <tr class="border-0">
                                                 <th class="border-0">#</th>
-                                                <th class="border-0">Total Orders</th>
-                                                <th class="border-0">Orders In Progress</th>
-                                                <th class="border-0">Completed Orders</th>
-                                                <th class="border-0">Cancelled Orders</th>
+                                                <th class="border-0">Product Id</th>
+                                                <th class="border-0">Amount</th>
+                                                <th class="border-0">Payment Method</th>
+                                                <th class="border-0">Payment Status</th>
+                                                <th class="border-0">Customer First Name</th>
+                                                <th class="border-0">Customer Last Name</th>
+                                                <th class="border-0">Delivery Status</th>
                                                 <th class="border-0">Actions</th>
                                             </tr>
                                         </thead>
@@ -73,24 +76,32 @@
                                                 @php
                                                  $count = 1;   
                                                 @endphp
-                                            @foreach ($categories as $category)
+                                            @foreach ($allorders as $order)
                                             <tr class="delete_row">
                                                 <td>{{$count++}}</td>
-                                                <td>{{$category['name']}} </td>
-                                                <td style="display:flex;">
-                                                    <a href="/edit-product/{{$category['id']}}">
-                                                        <i class="fas fa-edit mr-2 text-primary"></i>
-                                                    </a>
+                                                <td>{{$order->product_id}} </td>
+                                                <td>{{$order->amount}} </td>
+                                                <td>{{$order->payment_method}} </td>
+                                                <td>{{$order->payment_status}} </td>
+                                                <td>{{$order->first_name}} </td>
+                                                <td>{{$order->last_name}} </td>
+                                                <td>{{$order->delivery_status}} </td>
+                                                <td >
+                                                    <select class="form-control" name="" id="">
+                                                        <option value="c">Order Completed</option>
+                                                        <option value="">Order In Progress</option>
+                                                        <option value="">Order Canceled</option>
+                                                    </select>
                                                     {{-- <a href="/delete-product/{{$category['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                     </a>  --}}
-                                                    <form action="{{ route('delete.cat') }}" method="post" id="submit">
+                                                    {{-- <form action="{{ route('delete.order') }}" method="post" id="submit">
                                                         @csrf
-                                                        <input type="hidden" class="cat_id" name="cat_id" value="{{$category['id']}}">
+                                                        <input type="hidden" class="cat_id" name="cat_id" value="{{$order->id}}">
                                                         <button style="background: none;border:none;" onclick="delete_cat(this)" type="button" class="delete_cat" >
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
                                                         </button> 
-                                                    </form>
+                                                    </form> --}}
                                                 </td>
                                             </tr>
                                             @endforeach
