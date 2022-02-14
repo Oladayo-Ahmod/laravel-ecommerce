@@ -87,10 +87,10 @@
                                                 <td>{{$order->last_name}} </td>
                                                 <td>{{$order->delivery_status}} </td>
                                                 <td >
-                                                    <select class="form-control" name="" id="">
-                                                        <option value="c">Order Completed</option>
-                                                        <option value="">Order In Progress</option>
-                                                        <option value="">Order Canceled</option>
+                                                    <select class="form-control" onchange="update_orders(this.value)" name="" id="">
+                                                        <option value="completed">Order Completed</option>
+                                                        <option value="progress">Order In Progress</option>
+                                                        <option value="cancelled">Order Canceled</option>
                                                     </select>
                                                     {{-- <a href="/delete-product/{{$category['id']}}">
                                                         <i class="fas fa-trash mr-2 text-danger"></i>
