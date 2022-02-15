@@ -93,9 +93,20 @@
                                                         <input type="hidden" name="" class="order_id" value="{{$order->id}}">
                                                         <input type="hidden" name="" class="user_id" value="{{$order->user_id}}">
                                                         <select class="form-control" onchange="update_orders(this)" name="" id="">
+                                                            <option value="{{$order->delivery_status}}">Order {{$order->delivery_status}}</option>
+                                                            @if ($order->delivery_status !== 'in progress')
+                                                                <option value="in progress">Order In Progress</option>
+                                                            @endif
+
+                                                            @if($order->delivery_status !== 'completed')
                                                             <option value="completed">Order Completed</option>
-                                                            <option value="progress">Order In Progress</option>
-                                                            <option value="cancelled">Order Canceled</option>
+                                                            @endif
+
+                                                                @if($order->delivery_status !== 'cancelled')
+                                                                <option value="cancelled">Order Canceled</option>
+                                                            @endif
+                                                            
+
                                                         </select>
                                                        
                                                     </form>
