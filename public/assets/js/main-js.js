@@ -260,6 +260,7 @@ update_orders=(el)=>{
     let url = parent.parentElement.querySelector('form').getAttribute('action');
     let type = parent.parentElement.querySelector('form').getAttribute('method');
     console.log(url)
+    console.log(type)
     let user_id = parent.querySelector('.user_id').value
     let order_id = parent.querySelector('.order_id').value
     let form = new FormData();
@@ -268,7 +269,7 @@ update_orders=(el)=>{
     form.append('order_id',order_id)
     Swal.fire({
         title: 'Are you sure',
-        text: `You want to update this order to <i> ${el.value} </i>`,
+        text: `You want to update this order to  ${el.value}`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

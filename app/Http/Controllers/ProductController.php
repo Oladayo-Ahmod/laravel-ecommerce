@@ -344,13 +344,14 @@ class ProductController extends Controller
     function update_order(Request $req){
         $order_id = $req->order_id;
         $order = Order::find($order_id);
-        $order->delivery_status  = $req->status;
-        if($order->save()){
-            return response()->json(['code'=>'success','msg'=>'updated']);
-        }
-        else{
-            return response()->json(['code'=>'danger','msg'=>'error']);
-        }
+        return response()->json($req);
+        // $order->delivery_status  = $req->status;
+        // if($order->save()){
+        //     return response()->json(['code'=>'success','msg'=>'updated']);
+        // }
+        // else{
+        //     return response()->json(['code'=>'danger','msg'=>'error']);
+        // }
     }
    
 }
