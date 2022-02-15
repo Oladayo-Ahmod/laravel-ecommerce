@@ -77,7 +77,7 @@
                                                  $count = 1;   
                                                 @endphp
                                             @foreach ($allorders as $order)
-                                            <tr class="delete_row">
+                                            <tr class="update_row">
                                         
                                                 <td>{{$count++}}</td>
                                                 <td>{{$order->product_id}} </td>
@@ -86,7 +86,7 @@
                                                 <td>{{$order->payment_status}} </td>
                                                 <td>{{$order->first_name}} </td>
                                                 <td>{{$order->last_name}} </td>
-                                                <td>{{$order->delivery_status}} </td>
+                                                <td class="update_delivery">{{$order->delivery_status}} </td>
                                                 <td>
                                                     <form action="{{ route('order.update') }}" method="post" id="submit">
                                                         @csrf

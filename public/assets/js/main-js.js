@@ -290,6 +290,7 @@ update_orders=(el)=>{
                             'Order updated successfully.',
                             'success'
                         )
+                        parent.parentElement.parentElement.querySelector('.update_delivery').innerHTML = el.value; // remove the row after deleting
                     }
                    
                     else{
