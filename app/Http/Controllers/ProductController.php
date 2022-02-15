@@ -323,8 +323,9 @@ class ProductController extends Controller
             leftJoin('products','orders.product_id','=','products.id')->
             orderBy('orders.id','desc')->limit(3)->get();
             $allorders = DB::table('orders')->
-            leftJoin('products','orders.product_id','=','products.id')->
-            orderBy('orders.id','desc')->paginate(10);
+            join('products','orders.product_id','=','products.id')
+            ->select('orders.*','orders.id as order_id')
+            ->orderBy('orders.id','desc')->paginate(10);
             $count_orders = DB::table('orders')->count();
             $form_categories = Category::all();
             $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
@@ -344,14 +345,13 @@ class ProductController extends Controller
     function update_order(Request $req){
         $order_id = $req->order_id;
         $order = Order::find($order_id);
-        return response()->json($req);
-        // $order->delivery_status  = $req->status;
-        // if($order->save()){
-        //     return response()->json(['code'=>'success','msg'=>'updated']);
-        // }
-        // else{
-        //     return response()->json(['code'=>'danger','msg'=>'error']);
-        // }
+        $order->delivery_status  = $req->status;
+        if($order->save()){
+            return response()->json(['code'=>'success','msg'=>'updated']);
+        }
+        else{
+            return response()->json(['code'=>'danger','msg'=>'error']);
+        }
     }
    
 }

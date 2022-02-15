@@ -259,8 +259,6 @@ update_orders=(el)=>{
     let parent = el.parentElement
     let url = parent.parentElement.querySelector('form').getAttribute('action');
     let type = parent.parentElement.querySelector('form').getAttribute('method');
-    console.log(url)
-    console.log(type)
     let user_id = parent.querySelector('.user_id').value
     let order_id = parent.querySelector('.order_id').value
     let form = new FormData();
