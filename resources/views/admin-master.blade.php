@@ -41,6 +41,8 @@
     <script src="{{ url('assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
     {{-- sweet alert js --}}
     <script src="{{ url('assets/js/sweetalert2.min.js')}}"></script>
+    {{-- chart js --}}
+    <script src="{{ url('assets/js/chart.js')}}"></script>
      <!-- main js -->
      <script src="{{ url('assets/js/main-js.js')}}"></script>
     <!-- chart chartist js -->
