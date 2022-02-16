@@ -59,16 +59,9 @@
     <script src="{{ url('assets/libs/js/dashboard-ecommerce.js')}}"></script>
     <script>
         // chart js implementation
-        var cData = JSON.parse(`<?php echo $record; ?>`);
-        console.log(cData)
-        const labels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-          ];
+        var record = JSON.parse(`<?php echo $record; ?>`);
+        console.log(record)
+        const labels = record.label;
         
           const data = {
             labels: labels,
@@ -76,7 +69,7 @@
               label: 'Customers Orders Chart',
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
-              data: [0, 10, 5, 2, 20, 30, 45],
+              data: record.data,
             }]
           };
         
