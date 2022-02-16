@@ -59,7 +59,7 @@
     <script src="{{ url('assets/libs/js/dashboard-ecommerce.js')}}"></script>
     <script>
         // chart js implementation
-        var record = JSON.parse(`<?php echo $record; ?>`);
+        var record = JSON.parse(`<?php echo $chart_data; ?>`);
         console.log(record)
         const labels = record.label;
         
@@ -78,6 +78,22 @@
             data: data,
             options: {
                 maintainAspectRatio: false,
+                responsive: true,
+        title: {
+          display: true,
+          position: "top",
+          text: "Last Tow Months Orders -  Day Wise Count",
+          fontSize: 18,
+          fontColor: "#111"
+        },
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            fontColor: "#333",
+            fontSize: 16
+          }
+        }
             }
           };
     

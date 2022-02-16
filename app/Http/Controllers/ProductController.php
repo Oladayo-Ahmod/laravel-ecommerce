@@ -150,7 +150,22 @@ class ProductController extends Controller
         $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
         $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
         $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-        return view('manage-products', compact('orders','count_orders','orders_delivered','form_categories','orders_inprogress','orders_cancelled','products'));            
+        // records for chart
+        $record = Order::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+        ->where('created_at', '>', Carbon::today()->subDay(60))
+        ->groupBy('day_name','day')
+        ->orderBy('day')
+        ->get();
+      
+         $data = [];
+     
+         foreach($record as $row) {
+            $data['label'][] = $row->day_name;
+            $data['data'][] = (int) $row->count;
+          }
+     
+        $data['chart_data'] = json_encode($data);
+        return view('manage-products', compact('orders','record','count_orders','orders_delivered','form_categories','orders_inprogress','orders_cancelled','products'));            
     }
     // add product
     function add_products(Request $req){
@@ -217,7 +232,22 @@ class ProductController extends Controller
             $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
             $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
             $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-            return view('manage-categories', compact('orders','form_categories','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories'));
+             // records for chart
+            $record = Order::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+            ->where('created_at', '>', Carbon::today()->subDay(60))
+            ->groupBy('day_name','day')
+            ->orderBy('day')
+            ->get();
+        
+            $data = [];
+        
+            foreach($record as $row) {
+                $data['label'][] = $row->day_name;
+                $data['data'][] = (int) $row->count;
+            }
+        
+            $data['chart_data'] = json_encode($data);
+            return view('manage-categories', compact('orders','record','form_categories','count_orders','orders_delivered','orders_inprogress','orders_cancelled','categories'));
             
         }
         else {
@@ -346,8 +376,8 @@ class ProductController extends Controller
                 $data['data'][] = (int) $row->count;
               }
          
-            $data['chart_data'] = json_encode($data);
-            return view('list-orders', compact('orders','record','allorders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','form_categories'));
+            $chart_data = json_encode($data);
+            return view('list-orders', compact('orders','chart_data','allorders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','form_categories'));
 
         }
         else {
