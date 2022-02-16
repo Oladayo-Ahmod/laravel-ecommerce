@@ -1,41 +1,9 @@
+// var cData = JSON.parse(`<?php echo $chart_data; ?>`);
 
 jQuery(document).ready(function($) {
     'use strict';
     // =============================================================
-    // chart js
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-      ];
     
-      const data = {
-        labels: labels,
-        datasets: [{
-          label: 'Customers Orders Chart',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-      };
-    
-      const config = {
-        type: 'line',
-        data: data,
-        options: {
-            maintainAspectRatio: false,
-        }
-      };
-
-    //   instantiation
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-      );
-      myChart.height(400);
     // ============================================================== 
     // Notification list
     // ============================================================== 

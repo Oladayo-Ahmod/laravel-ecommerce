@@ -8,7 +8,7 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Category;
-use Illuminate\Support\Carbon
+use Illuminate\Support\Carbon;
 use Session;
 use DB;
 class ProductController extends Controller
@@ -334,7 +334,7 @@ class ProductController extends Controller
             $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count(); // count all cancelled orders
             // orders for chart rendering
             $record = Order::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
-            ->where('created_at', '>', Carbon::today()->subDay(6))
+            ->where('created_at', '>', Carbon::today()->subDay(60))
             ->groupBy('day_name','day')
             ->orderBy('day')
             ->get();
