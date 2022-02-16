@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Category;
+use Illuminate\Support\Carbon
 use Session;
 use DB;
 class ProductController extends Controller
@@ -321,17 +322,32 @@ class ProductController extends Controller
         if (Session::has('admin')) {
             $orders = DB::table('orders')->
             leftJoin('products','orders.product_id','=','products.id')->
-            orderBy('orders.id','desc')->limit(3)->get();
+            orderBy('orders.id','desc')->limit(3)->get(); // orders 
             $allorders = DB::table('orders')->
             join('products','orders.product_id','=','products.id')
             ->select('orders.*','orders.id as order_id')
-            ->orderBy('orders.id','desc')->paginate(10);
-            $count_orders = DB::table('orders')->count();
+            ->orderBy('orders.id','desc')->paginate(10); // all paginated orders
+            $count_orders = DB::table('orders')->count(); // count total orders
             $form_categories = Category::all();
-            $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count();
-            $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count();
-            $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count();
-            return view('list-orders', compact('orders','allorders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','form_categories'));
+            $orders_inprogress = DB::table('orders')->where('delivery_status','in progress')->count(); // count total orders in progress
+            $orders_delivered = DB::table('orders')->where('delivery_status','delivered')->count(); // count total orders delivered
+            $orders_cancelled = DB::table('orders')->where('delivery_status','cancelled')->count(); // count all cancelled orders
+            // orders for chart rendering
+            $record = Order::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+            ->where('created_at', '>', Carbon::today()->subDay(6))
+            ->groupBy('day_name','day')
+            ->orderBy('day')
+            ->get();
+          
+             $data = [];
+         
+             foreach($record as $row) {
+                $data['label'][] = $row->day_name;
+                $data['data'][] = (int) $row->count;
+              }
+         
+            $data['chart_data'] = json_encode($data);
+            return view('list-orders', compact('orders','record','allorders','count_orders','orders_delivered','orders_inprogress','orders_cancelled','form_categories'));
 
         }
         else {
