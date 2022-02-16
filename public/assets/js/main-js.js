@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
       const data = {
         labels: labels,
         datasets: [{
-          label: 'My First dataset',
+          label: 'Customers Orders Chart',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
           data: [0, 10, 5, 2, 20, 30, 45],
@@ -25,7 +25,9 @@ jQuery(document).ready(function($) {
       const config = {
         type: 'line',
         data: data,
-        options: {}
+        options: {
+            maintainAspectRatio: false,
+        }
       };
 
     //   instantiation
@@ -33,6 +35,7 @@ jQuery(document).ready(function($) {
         document.getElementById('myChart'),
         config
       );
+      myChart.height(400);
     // ============================================================== 
     // Notification list
     // ============================================================== 

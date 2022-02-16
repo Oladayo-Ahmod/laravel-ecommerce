@@ -131,8 +131,10 @@
                 </div>
                     <!-- ============================================================== -->
                     <!-- end customers orders  -->
-                    <div>
-                        <canvas id="myChart"></canvas>
+
+                    {{-- customers order chart  --}}
+                        <div class="">
+                        <canvas id="myChart" style="height: 380px"></canvas>
                       </div>
                          {{-- add new product modal --}}
         <div class="modal fade" id="add-product" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
