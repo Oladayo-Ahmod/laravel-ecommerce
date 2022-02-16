@@ -132,9 +132,9 @@
                     <!-- end customers orders  -->
 
                     {{-- customers order chart  --}}
-                        <div class="">
+                    <div class="">
                         <canvas id="myChart" style="height: 380px"></canvas>
-                      </div>
+                    </div>
                          {{-- add new product modal --}}
         <div class="modal fade" id="add-product" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">

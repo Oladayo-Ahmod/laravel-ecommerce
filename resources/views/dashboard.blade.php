@@ -97,7 +97,10 @@
                             </div>
                             <!-- ============================================================== -->
                             <!-- end recent orders  -->
-                       
+                       {{-- customers order chart  --}}
+                       <div class="">
+                        <canvas id="myChart" style="height: 380px"></canvas>
+                      </div>
                      
                         
             
