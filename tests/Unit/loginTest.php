@@ -12,12 +12,12 @@ class loginTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->post('/login',[
+        $response = $this->call('POST','/login',[
             'email'=>'oladayoahmod1122@gmail.com',
             'password'=>'olami'
         ]);
         // dd($response);
-        $response->assertRedirect('/cartlist');
+        $response->assertRedirect('/');
         // $response->assertStatus($response->status(),200);
     }
 }
