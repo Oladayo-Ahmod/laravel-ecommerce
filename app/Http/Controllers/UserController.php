@@ -59,3 +59,4 @@ class UserController extends Controller
         // return view("cartlist",['user_data'=>$data]);
     }
 }
+ 
