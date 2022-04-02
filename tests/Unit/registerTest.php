@@ -18,7 +18,7 @@ class registerTest extends TestCase
     {
         // using model
         $user = new User;
-        $user->create([
+        $user->make([
             'first_name'=>'test first name',
             'last_name'=>'test last name',
             'address'=>'test address',
