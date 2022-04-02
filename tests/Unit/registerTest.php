@@ -4,7 +4,8 @@ namespace Tests\Unit;
 
 use App\Models\User;
 use Hash;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+
 
 class registerTest extends TestCase
 {
@@ -23,8 +24,7 @@ class registerTest extends TestCase
             'address'=>'test address',
             'email'=>'olalekan112@gmail.com',
             'phone'=>'12345678909',
-            'password'=>Hash::make('olami')
-
+            'password'=>'olami'
         ]);
         $user->assertStatus($user->status(),200);
     }
