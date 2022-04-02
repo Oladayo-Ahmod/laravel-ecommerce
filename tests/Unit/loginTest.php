@@ -10,7 +10,7 @@ class loginTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_login()
     {
         $response = $this->call('POST','/login',[
             'email'=>'oladayoahmod1122@gmail.com',
