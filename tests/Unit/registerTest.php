@@ -17,8 +17,21 @@ class registerTest extends TestCase
     public function test_register()
     {
         // using model
-        $user = new User;
-        $user = $user->create([
+        // $user = new User;
+        // $user = $user->create([
+        //     'first_name'=>'test first name',
+        //     'last_name'=>'test last name',
+        //     'address'=>'test address',
+        //     'email'=>'olalekan112@gmail.com',
+        //     'phone'=>'12345678909',
+        //     'password'=>'olami'
+        // ]);
+        // // dd($user);
+        // $user->assertStatus($user->status(),200);
+        // $this->assertStatus(true);
+
+        // using http requests
+        $response = $this->call('POST','/register',[
             'first_name'=>'test first name',
             'last_name'=>'test last name',
             'address'=>'test address',
@@ -26,9 +39,7 @@ class registerTest extends TestCase
             'phone'=>'12345678909',
             'password'=>'olami'
         ]);
-        dd($user);
-        // $user->assertStatus($user->status(),200);
-        $this->assertTrue(true);
-
+        dd($response);
+            $response->assertStatus($response->status(),200);
     }
 }

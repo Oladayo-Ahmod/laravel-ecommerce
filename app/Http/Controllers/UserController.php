@@ -16,7 +16,7 @@ class UserController extends Controller
             'first_name'=> 'required',
             'last_name'=> 'required',
             'address'=> 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:5',
             'phone' => 'required|min:11',
             // 'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048' image upload functionality
