@@ -35,11 +35,11 @@ class registerTest extends TestCase
             'first_name'=>'test first name',
             'last_name'=>'test last name',
             'address'=>'test address',
-            'email'=>'olalekan113@gmail.com',
+            'email'=>'olalekan1133@gmail.com',
             'phone'=>'12345678909',
             'password'=>'olami'
         ]);
-        dd($response);
+        // dd($response);
             $response->assertStatus($response->status(),200);
     }
 }
