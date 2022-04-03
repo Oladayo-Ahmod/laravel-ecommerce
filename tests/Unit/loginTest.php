@@ -26,7 +26,7 @@ class loginTest extends TestCase
             'email' => 'oladayoahmod112@gmail.com',
             'password'=>'olami'
         ]);
-        dd($response);
-        $response->assertRedirect('/dashboad');
+        // dd($response);
+        $response->assertRedirect('/dashboard');
     }
 }
