@@ -20,4 +20,13 @@ class loginTest extends TestCase
         $response->assertRedirect('/');
         // $response->assertStatus($response->status(),200);
     }
+
+    public function test_admin_login(){
+        $response = $this->call('POST','/admin',[
+            'email' => 'oladayoahmod112@gmail.com',
+            'password'=>'olami'
+        ]);
+        dd($response);
+        $response->assertRedirect('/dashboad');
+    }
 }
