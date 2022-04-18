@@ -17,11 +17,18 @@ use App\Models\Products_category;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// logout routes
+// authenticated user routes
+Route::middleware('AuthUser')->group(function(){
+// logout route
 Route::get('/logout', function () {
     Session::forget('user');
     return redirect('/');
-}); // user logout route
+});
+});
+
+// authenticated admin routes
+// Route::middleware('git');
+ // user logout route
 Route::get('/admin-logout', function () {
     Session::forget('admin');
     return redirect('/admin');
